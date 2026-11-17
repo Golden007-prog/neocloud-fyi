@@ -1,0 +1,11 @@
+# Passes: operating_model resells with a source and checked date, facility with its source.
+- id: resells-with-source
+  name: Resells With Source
+  source: https://example.com/about
+  checked: 2026-10-24
+  confidence: verified
+  operating_model: resells
+  operating_model_source: https://example.com/terms
+  operating_model_checked: 2026-10-24
+  facility: Example facility
+  facility_source: https://example.com/site

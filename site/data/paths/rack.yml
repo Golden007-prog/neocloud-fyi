@@ -1,0 +1,87 @@
+# Racks: what an NVL72-class rack needs
+# Migrated from ../research/2026-09-18_draft-site/data-learning.js PATHS (id: rack), 2026-09-18.
+# Step-level "confidence: unverified" mirrors the draft's ok:0 flag; each carries a note
+# saying what was not independently confirmed. See docs/scrub/B5.md.
+
+id: rack
+name: "Racks: what an NVL72-class rack needs"
+source: https://neocloud.fyi/sources/
+checked: 2026-09-18
+confidence: verified
+note: site's own compiled learning path, synthesised from the sources cited in each step
+hours: 15 to 20 h
+cost: free
+summary: "The numbers a building has to meet: power per rack, coolant flow, inlet temperature, weight, and how far cables can run. All of it is in free NVIDIA and OCP documents. NVIDIA had not published a data-centre design guide for Vera Rubin by September 2026."
+not_found: No public NVIDIA design guide for Vera Rubin yet. A Schneider and NVIDIA blueprint was announced in March 2026 without a public PDF.
+related:
+  - fabric
+  - ops
+  - facility
+  - cooling
+related_reasons:
+  fabric: The rail-optimised topology in the fabric path is the logical description of how these racks are wired to leaf switches.
+  ops: Mission Control and BCM bring the rack up and watch its health.
+  facility: Rack kW, litres per minute and kilograms are the load the building must serve.
+  cooling: Most of an NVL72 rack's heat leaves in liquid and the remainder in air, so the rack sets both loops.
+steps:
+  - title: DGX SuperPOD cabling design guide
+    description: How racks, leaf and spine switches are placed and cabled.
+    url: https://docs.nvidia.com/dgx-superpod/design-guide-cabling-data-centers/latest/index.html
+    cost: free
+    hours: "3"
+    verdict: core
+    confidence: verified
+  - title: DGX GB200 and GB300 rack-scale user guide
+    description: Power, coolant flow, weight and rack specifications for the NVL72.
+    url: https://docs.nvidia.com/dgx/dgxgb200-user-guide/index.html
+    cost: free
+    hours: "4"
+    verdict: core
+    confidence: verified
+  - title: SuperPOD reference architectures, GB200 and GB300
+    description: "The full system: compute, fabrics, storage, management."
+    url: https://docs.nvidia.com/pdf/dgx-spod-gb300-ra.pdf
+    cost: free
+    hours: "4"
+    verdict: core
+    confidence: verified
+    more:
+      - label: GB200 RA
+        url: https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-gb200/latest/
+      - label: NVL72 AI Factory components
+        url: https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/components.html
+      - label: H100 data-centre design guide
+        url: https://docs.nvidia.com/dgx-superpod/design-guides/dgx-superpod-data-center-design-h100/latest/index.html
+  - title: Structured cabling requirements, NDR/XDR and 400/800G
+    description: The cable-length limits in one document.
+    url: https://docs.nvidia.com/networking/display/nvidia-interconnect-structured-cabling-requirements-for-infiniband-ndr-xdr-and-400-800g-eth-solutions.pdf
+    cost: free
+    hours: "1.5"
+    verdict: core
+    confidence: verified
+  - title: OCP rack specifications
+    description: Open Rack V3 blind-mate manifold, rack manifold requirements, reservoir and pumping unit.
+    url: https://www.opencompute.org/documents/open-rack-v3-blind-mate-manifold-specification-rev-1-0-review-april05-2024-pdf
+    cost: free
+    hours: "2"
+    verdict: opt
+    confidence: verified
+    more:
+      - label: Rack manifold requirements
+        url: https://www.opencompute.org/documents/ocp-white-paper-rack-manifold-requirements-and-qualification-v3-pdf
+      - label: Reservoir and pumping unit
+        url: https://www.opencompute.org/documents/ocp-reservoir-and-pumping-unit-specification-v1-0-pdf
+  - title: Cable Validation Tool Fundamentals
+    description: Free course that gives the cabling vocabulary without sitting the cabling exam.
+    url: https://www.nvidia.com/en-us/training/academy/course-detail/?id=course%3A15853439
+    cost: free
+    hours: "2.5"
+    verdict: opt
+    confidence: verified
+  - title: "Exam: NCP-ARI"
+    description: See the exam entry below.
+    url: https://www.nvidia.com/en-us/learn/certification/ai-rack-and-interconnect-professional/
+    cost: USD 400
+    hours: "2"
+    verdict: skip
+    confidence: verified

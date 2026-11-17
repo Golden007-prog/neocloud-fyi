@@ -1,0 +1,32 @@
+---js
+{
+  pagination: { data: "site.vendor-courses", size: 1, alias: "course" },
+  layout: "layouts/entry.njk",
+  permalink: "/courses/{{ course.id }}/index.html",
+  eleventyComputed: {
+    // Same long-title guard as exam.njk: base.njk (not ours to edit) renders
+    // "{{ title }} — neocloud.fyi", which two course names overflow (course-ocp-academy,
+    // course-vertiv-ce-webinars). Shorten to the part before the first colon for the
+    // <title>/<h1>, and keep the full name as the lede so nothing is lost.
+    title: (data) => data.course.name.split(":")[0].trim(),
+    lede: (data) => (data.course.name.includes(":") ? data.course.name : undefined),
+    eyebrow: () => "Vendor course",
+    crumbs: () => [{ label: "Courses", url: "/courses/" }],
+    source: (data) => data.course.source,
+    checked: (data) => data.course.checked,
+    confidence: (data) => data.course.confidence,
+    note: (data) => data.course.note,
+    related: (data) => data.links[data.course.id] || [],
+  },
+}
+---
+{% set verdict = course.verdict %}
+<p>{% include "partials/verdict-chip.njk" %}</p>
+
+{# Vendor/cost/access as the same unlabelled .facts list shape as the exam pages
+   (`course` duplicates `name`, already the page title, so it is left out here). #}
+<ul class="facts">
+  {% if course.vendor %}<li>{{ course.vendor }}</li>{% endif %}
+  {% if course.cost %}<li>{{ course.cost }}</li>{% endif %}
+  {% if course.access %}<li>{{ course.access }}</li>{% endif %}
+</ul>

@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "watches": {
+    "events/ev-cerebras-ipo-pricing#what": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "events/ev-core-scientific-coreweave-vote#what": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "events/ev-coreweave-nebius-nasdaq-100#what": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "events/ev-microsoft-nscale-norway#what": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "exams/exam-atd#price": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "exams/exam-nca-aiio#price": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "exams/exam-ncp-aii#price": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "exams/exam-ncp-ain#price": {
+      "pending": "A:{\"free\":false,\"price\":500,\"hours\":null}",
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "exams/exam-ncp-aio#price": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "exams/exam-ncp-ari#price": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "leasing/lease-gross-vs-critical-it-load#detail": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "vendor-courses/course-arista-ace#cost": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "vendor-courses/course-nvidia-bluefield#cost": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    },
+    "vendor-courses/course-vast-vcp-ad1#cost": {
+      "pending": null,
+      "failures": 0,
+      "prior_confidence": null
+    }
+  }
+}

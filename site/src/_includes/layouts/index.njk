@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+---
+<section>
+  <header class="entry-head">
+    {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+    {# index.njk (the home page) sets no page `title`, so the <title> tag in base.njk
+       does not duplicate meta.title; this h1 falls back to meta.title so the home page
+       still shows a heading. Every other page sets its own `title` and is unaffected. #}
+    <h1>{{ title or meta.title }}</h1>
+    {% if lede %}<p class="lede">{{ lede }}</p>{% endif %}
+  </header>
+  {{ content | safe }}
+</section>

@@ -1,0 +1,8 @@
+# Trips rule 1: operating_model outside the enum.
+- id: badenum
+  name: Bad Enum
+  source: https://example.com/about
+  checked: 2026-10-24
+  confidence: verified
+  operating_model: own
+  operating_model_source: https://example.com/terms

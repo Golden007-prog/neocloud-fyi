@@ -1,0 +1,119 @@
+---
+layout: layouts/index.njk
+title: What is a neocloud, and how to check one
+lede: A neocloud sells GPU compute and little else. Here is a short definition and six questions to ask before you rent from one.
+permalink: /what-is-a-neocloud/
+description: A plain definition of a neocloud, how it differs from a hyperscaler and a reseller, and a six-question checklist for checking one.
+---
+<section>
+  <h2>Definition</h2>
+  <p>A neocloud is a cloud company built around GPU compute for AI work. It rents
+  clusters, bare-metal servers or inference by the hour or on a contract. It does not
+  try to be a general-purpose cloud with hundreds of other services.</p>
+  <p>The label is loose. This site sorts providers into
+  <a href="/providers/category/cat-neo/">neoclouds</a>,
+  <a href="/providers/category/cat-eu/">European and regional clouds</a>,
+  <a href="/providers/category/cat-market/">marketplaces</a>,
+  <a href="/providers/category/cat-inference/">inference platforms</a> and
+  <a href="/providers/category/cat-landlord/">landlords</a>.
+  The <a href="/vocabulary/">vocabulary</a> explains the terms.</p>
+</section>
+
+<section>
+  <h2>Neocloud, hyperscaler or reseller</h2>
+  <ul>
+    <li><strong>Neocloud:</strong> runs GPU clusters as its main product. Example row:
+      <a href="/providers/coreweave/">CoreWeave</a>.</li>
+    <li><strong>Hyperscaler or general cloud:</strong> GPUs are one product among many.
+      Example row: <a href="/providers/ovhcloud/">OVHcloud</a>, which this site describes as a
+      general-purpose cloud more than a neocloud.</li>
+    <li><strong>Marketplace or reseller:</strong> brokers GPUs that other hosts own.
+      Example row: <a href="/providers/vast-ai/">Vast.ai</a>.</li>
+    <li><strong>Landlord:</strong> owns the building and the power, and rents space to
+      tenants who bring their own machines. Example rows:
+      <a href="/providers/merlin-edged/">Merlin Edged</a> and
+      <a href="/providers/applied-digital/">Applied Digital</a>.</li>
+  </ul>
+  <p>One company can be more than one of these. Check each product, not just the name.</p>
+</section>
+
+<section id="compared">
+  <h2>Neocloud vs hyperscaler</h2>
+  <p>A hyperscaler is a general cloud where GPUs are one product among many. A neocloud sells
+  GPU compute as the main product. The two also meet as landlord and tenant: the hyperscalers
+  lease whole buildings too.</p>
+  {% for r in site.leasing %}{% if r.id == "lease-hyperscaler-threshold" %}
+  <p>{{ r.detail }}</p>
+  {% set source = r.source %}{% set checked = r.checked %}{% set confidence = r.confidence %}{% set note = r.note %}
+  {% include "partials/source-line.njk" %}
+  {% endif %}{% endfor %}
+</section>
+
+<section id="colocation">
+  <h2>Neocloud vs colocation</h2>
+  <p>A colocation landlord rents space and power. The tenant brings the machines. A neocloud
+  rents compute and runs the machines. Many neoclouds are tenants of a colocation landlord, so
+  one provider can sit on both sides of this line. See the <a href="/leasing/">leasing</a> page
+  for what landlords ask of tenants.</p>
+  {% for r in site.leasing %}{% if r.id == "lease-power-priced-in-parts" or r.id == "lease-fifteen-year-leases" %}
+  <p><strong>{{ r.requirement }}.</strong> {{ r.detail }}</p>
+  {% set source = r.source %}{% set checked = r.checked %}{% set confidence = r.confidence %}{% set note = r.note %}
+  {% include "partials/source-line.njk" %}
+  {% endif %}{% endfor %}
+</section>
+
+<section id="sovereign">
+  <h2>Neocloud vs sovereign cloud</h2>
+  <p>A sovereign cloud is sold on where the capacity sits and who controls it, not on price or
+  speed. This site files state-backed and national-champion compute under
+  <a href="/providers/category/cat-sovereign/">sovereign or national</a>. Some of those
+  providers are neocloud-like (GPU cloud), some are landlords and some are public supercomputing
+  centres. Example rows, as each company describes itself:</p>
+  <ul>
+  {% for r in site.providers %}{% if r.id == "evroc" or r.id == "polarise" or r.id == "mistral-compute" or r.id == "bsc" %}
+    <li><a href="/providers/{{ r.id }}/">{{ r.name }}</a>: {{ r.sells }}.
+      {% set source = r.source %}{% set checked = r.checked %}{% set confidence = r.confidence %}{% set note = "" %}
+      {% include "partials/source-line.njk" %}</li>
+  {% endif %}{% endfor %}
+  </ul>
+  <p>A sovereign label is a claim about control. It is not a certificate. Ask who owns and
+  operates the site and which law applies to the contract.</p>
+</section>
+
+<section>
+  <h2>Six questions to ask</h2>
+  <p>Ask the provider. Get each answer in writing. If it will not answer, treat that as an answer.</p>
+  <ol class="checklist">
+    <li class="check-item"><strong>Who operates it?</strong> Who runs the machines day to day:
+      the company you pay, or a partner? Each provider page has an operating-model line.
+      It says <em>unknown</em> until a source states it. See the
+      <a href="/providers/">provider index</a>.</li>
+    <li class="check-item"><strong>Who owns the GPUs?</strong> The company that sells you
+      the service may own the GPUs, lease them, or pass on capacity from someone else. A
+      marketplace such as <a href="/providers/vast-ai/">Vast.ai</a> lists hardware owned by
+      other hosts.</li>
+    <li class="check-item"><strong>Where is the facility?</strong> Ask for the site and who
+      owns the building. Some providers rent their halls: the
+      <a href="/providers/coreweave/">CoreWeave</a> row notes European sites leased from
+      <a href="/providers/merlin-edged/">Merlin Edged</a>. See also the
+      <a href="/leasing/">leasing</a> page.</li>
+    <li class="check-item"><strong>What does a certificate not prove?</strong> A certificate
+      covers a scope: one site, one product, one date. It does not say the facility you use is
+      in that scope. Ask which site the certificate names. See the
+      <a href="/exams/">exams</a> and <a href="/courses/">courses</a> pages for how
+      vendor credentials are treated here.</li>
+    <li class="check-item"><strong>Is availability in writing?</strong> A web page that says
+      &ldquo;high availability&rdquo; is marketing. Look for an uptime commitment in the
+      contract or service terms, and what you get if it is missed.</li>
+    <li class="check-item"><strong>What is the minimum term?</strong> Ask for the shortest
+      commitment, the notice period and what happens to your data on exit.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>How to read the figures here</h2>
+  <p>This page states no figures of its own. Figures on provider rows are claims by the
+  companies, each with a source link and a checked date, or marked unverified. See
+  <a href="/sources/">how this is compiled</a>. Something wrong?
+  <a href="/corrections/">Send a correction</a>.</p>
+</section>

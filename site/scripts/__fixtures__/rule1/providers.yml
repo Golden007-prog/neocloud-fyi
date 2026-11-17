@@ -1,0 +1,5 @@
+# Rule 1: schema violation - `source` is required and missing.
+- id: no-source
+  name: No Source
+  checked: 2026-09-18
+  confidence: verified

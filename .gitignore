@@ -1,0 +1,9 @@
+# Books and papers: local reading copies, never published
+reading/
+.DS_Store
+site/node_modules/
+site/_site/
+site/.cache/
+worker/node_modules/
+.lighthouseci/
+tools/updater/node_modules/

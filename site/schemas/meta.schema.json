@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neocloud.fyi/schemas/meta.schema.json",
+  "title": "meta",
+  "$comment": "Site chrome, not sourced facts: extra keys are allowed so a later stage can add one without editing this schema.",
+  "type": "object",
+  "required": [
+    "title",
+    "description",
+    "byline",
+    "linkedin",
+    "content_licence",
+    "code_licence",
+    "corrections_email",
+    "nav"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "byline": {
+      "type": "string",
+      "minLength": 1
+    },
+    "linkedin": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "content_licence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "code_licence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "corrections_email": {
+      "type": "string",
+      "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    },
+    "nav": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "url"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

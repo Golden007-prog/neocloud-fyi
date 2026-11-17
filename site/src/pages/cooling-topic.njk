@@ -1,0 +1,31 @@
+---js
+{
+  // JS front matter (not YAML) so eleventyComputed can return the real `related` array
+  // and the plain `note`/`lede` strings, instead of a Nunjucks-templated (and
+  // double-escaped) string. See docs/plan.md Stage C shared rules and
+  // site/src/pages/exam.njk.
+  pagination: { data: "site.cooling-topics", size: 1, alias: "row" },
+  layout: "layouts/entry.njk",
+  permalink: "/cooling/{{ row.id }}/index.html",
+  eleventyComputed: {
+    title: (data) => data.row.name,
+    eyebrow: () => "Cooling",
+    lede: (data) => data.row.body,
+    source: (data) => data.row.source,
+    checked: (data) => data.row.checked,
+    confidence: (data) => data.row.confidence,
+    note: (data) => data.row.note,
+    related: (data) => data.links[data.row.id] || [],
+  },
+}
+---
+{% if row.figures and row.figures.length %}
+<table class="figs">
+  <thead><tr><th scope="col">Figure</th><th scope="col">Value</th><th scope="col">Source</th></tr></thead>
+  <tbody>
+    {% for f in row.figures %}
+    <tr><td>{{ f.label }}</td><td class="v">{{ f.value }}</td><td><a href="{{ f.source }}" rel="nofollow noopener">{{ f.source }}</a>{% if f.checked %} <span class="meta">last confirmed {{ f.checked | isoDate }}</span>{% endif %}{% if f.confidence == "unverified" %} <span class="unv">unverified</span>{% endif %}{% if f.note %}<br><span class="lede">{{ f.note }}</span>{% endif %}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}

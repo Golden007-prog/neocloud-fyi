@@ -1,0 +1,42 @@
+---js
+{
+  pagination: { data: "site.exams", size: 1, alias: "exam" },
+  layout: "layouts/entry.njk",
+  permalink: "/exams/{{ exam.id }}/index.html",
+  eleventyComputed: {
+    // The page <title> is "{{ title }} — neocloud.fyi" (base.njk, not ours to edit),
+    // so a long name is shortened to the part before its first colon — same short-label
+    // convention the draft used for path names — with the full name kept as the lede
+    // so nothing is lost from the page itself.
+    title: (data) => data.exam.name.split(":")[0].trim(),
+    lede: (data) => (data.exam.name.includes(":") ? data.exam.name : undefined),
+    eyebrow: () => "Exam",
+    crumbs: () => [{ label: "Exams", url: "/exams/" }],
+    source: (data) => data.exam.source,
+    checked: (data) => data.exam.checked,
+    confidence: (data) => data.exam.confidence,
+    note: (data) => data.exam.note,
+    related: (data) => data.links[data.exam.id] || [],
+  },
+}
+---
+{% set verdict = exam.verdict %}
+<p>{% include "partials/verdict-chip.njk" %}</p>
+
+{# The exam's price/format/proctoring/validity, in that order, as an UNLABELLED fact
+   list — never a labelled table. For exam-cdcdp and exam-dcai the draft's positional
+   split left the wrong fact under the `proctoring` field name (a BTEC award and a
+   sittings date, not proctoring info); rendering it unlabelled, in sequence with the
+   others, avoids ever printing a false "Proctoring:" label while still showing the
+   fact itself. See docs/plan.md Task C2. #}
+<ul class="facts">
+  {% if exam.vendor %}<li>{{ exam.vendor }}</li>{% endif %}
+  {% if exam.price %}<li>{{ exam.price }}</li>{% endif %}
+  {% if exam.format %}<li>{{ exam.format }}</li>{% endif %}
+  {% if exam.proctoring %}<li>{{ exam.proctoring }}</li>{% endif %}
+  {% if exam.validity %}<li>{{ exam.validity }}</li>{% endif %}
+  {% if exam.guide %}<li><a href="{{ exam.guide }}" rel="nofollow noopener">official study guide</a></li>{% endif %}
+</ul>
+
+{% if exam.domains %}<p>{{ exam.domains }}</p>{% endif %}
+{% if exam.worth %}<p><strong>Verdict.</strong> {{ exam.worth }}</p>{% endif %}

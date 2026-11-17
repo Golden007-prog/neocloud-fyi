@@ -1,0 +1,35 @@
+---
+layout: layouts/index.njk
+permalink: "/courses/index.html"
+eyebrow: Vendor courses
+title: The vendor-course index
+lede: Free and paid training and certification programmes from hardware and software vendors, each with a verdict — core, optional, later or skip. Filter below; every row is in the page source even with JavaScript off.
+---
+<div class="filters" data-verdict-table="vendor-courses" role="group" aria-label="Filter vendor courses by verdict">
+  <button type="button" data-verdict="all" aria-pressed="true">All</button>
+  <button type="button" data-verdict="core" aria-pressed="false">Core</button>
+  <button type="button" data-verdict="opt" aria-pressed="false">Optional</button>
+  <button type="button" data-verdict="later" aria-pressed="false">Later</button>
+  <button type="button" data-verdict="skip" aria-pressed="false">Skip</button>
+</div>
+
+<div class="idx-wrap">
+<table class="idx" data-verdict-table="vendor-courses">
+  <thead>
+    <tr><th scope="col">Course</th><th scope="col">Vendor</th><th scope="col">Cost</th><th scope="col">Access</th><th scope="col">Verdict</th></tr>
+  </thead>
+  <tbody>
+    {% for row in site["vendor-courses"] %}
+    <tr data-verdict="{{ row.verdict }}">
+      <td><a href="/courses/{{ row.id }}/">{{ row.name }}</a></td>
+      <td>{{ row.vendor }}</td>
+      <td>{{ row.cost }}</td>
+      <td>{{ row.access }}</td>
+      <td>{% set verdict = row.verdict %}{% include "partials/verdict-chip.njk" %}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<script src="/assets/js/verdict.js" defer></script>

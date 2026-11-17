@@ -1,0 +1,8 @@
+{# Reads: source, checked, confidence, note. Used by layouts/entry.njk. #}
+<p class="src">
+  {% if source %}<span>Source: <a href="{{ source }}" rel="nofollow noopener">{{ source }}</a></span>{% endif %}
+  {% if checked %}<span>Last confirmed {{ checked | isoDate }}</span>{% endif %}
+  {% if confidence == "unverified" %}<span class="unv">unverified</span>{% endif %}
+  {% include "partials/staleness.njk" %}
+</p>
+{% if note %}<p class="lede">{{ note }}</p>{% endif %}

@@ -1,0 +1,120 @@
+# Cooling: liquid to the chip, heat to the air
+# Migrated from ../research/2026-09-18_draft-site/data-learning.js PATHS (id: cooling), 2026-09-18.
+# Step-level "confidence: unverified" mirrors the draft's ok:0 flag; each carries a note
+# saying what was not independently confirmed. See docs/scrub/B5.md.
+
+id: cooling
+name: "Cooling: liquid to the chip, heat to the air"
+source: https://neocloud.fyi/sources/
+checked: 2026-09-18
+confidence: verified
+note: site's own compiled learning path, synthesised from the sources cited in each step
+hours: 10 h
+cost: free
+summary: Above roughly 20 to 30 kW per rack, air stops being practical. NVL72-class racks are cooled by liquid at the chip, with a small air remainder. NVIDIA specifies 45 deg C inlet water for GB200, GB300 and Vera Rubin. Thirteen topics are described further down.
+not_found: Germany's Energy Efficiency Act is the European reference for heat-reuse obligations; no equivalent applies across the EU as a whole.
+related:
+  - rack
+  - facility
+  - fabric
+  - ops
+related_reasons:
+  rack: Inlet temperature, flow and the liquid-to-air split come from the rack specification.
+  facility: Cooler fans in the PUE and pipe trenches are facility decisions.
+  fabric: Hoses and NVLink copper share the rear of the rack; switch racks stay air-cooled.
+  ops: Loss of flow removes cooling capacity abruptly, so telemetry and alarms are operational, not only mechanical.
+steps:
+  - title: "ASHRAE: Emergence and Expansion of Liquid Cooling"
+    description: The standard-setter's primer and the source of the W17 to W45 water classes. Start here for vocabulary.
+    url: https://www.ashrae.org/file%20library/technical%20resources/bookstore/emergence-and-expansion-of-liquid-cooling-in-mainstream-data-centers_wp.pdf
+    cost: free
+    hours: "0.75"
+    verdict: core
+    confidence: verified
+  - title: Schneider White Paper 133
+    description: "Six liquid-cooling architectures for AI halls: CDU type against heat-rejection method."
+    url: https://www.se.com/uk/en/about-us/newsroom/news/press-releases/schneider-electric-publishes-new-white-paper-on-liquid-cooling-for-ai-data-centres-66717048fdbb685dd102bc29
+    cost: free
+    hours: "1"
+    verdict: core
+    confidence: verified
+    note: "Opened 2026-10-06: Schneider's download page for White Paper 133 (version 2) offers the PDF with no price or purchase step: https://www.se.com/uk/en/download/document/SPD_WP133_EN/"
+  - title: "Vertiv: Deploying Liquid Cooling in the Data Center"
+    description: Practical guide to CDUs, manifolds and rear-door heat exchangers.
+    url: https://www.vertiv.com/495b39/globalassets/documents/white-papers/liquid-cooling/deploying-liquid-cooling-in-the-data-center-a-guide-to-high-density-cooling-white-paper.pdf
+    cost: free
+    hours: "1"
+    verdict: core
+    confidence: verified
+  - title: "OCP Academy: Introduction to Liquid Cooling"
+    description: Free introductory course.
+    url: https://www.opencompute.org/products/715/introduction-to-liquid-cooling-in-data-centers
+    cost: free
+    hours: "0.7"
+    verdict: core
+    confidence: unverified
+    note: Existence and content found via search; not independently confirmed by fetching OCP's own page directly.
+  - title: "OCP Academy: Liquid Cooling Technologies Overview"
+    description: "Four short parts: fluid selection, chemistry, commissioning, monitoring and maintenance."
+    url: https://academy.opencompute.org/learn
+    cost: free
+    hours: "1"
+    verdict: core
+    confidence: unverified
+    note: The course listing page did not fully render on fetch; content not independently confirmed.
+  - title: "OCP Academy: Project Deschutes CDU"
+    description: Forty minutes on Google's open 2 MW CDU specification. A real specification with numbers is the best anchor for vendor conversations.
+    url: https://www.opencompute.org/documents/ocp-specification-deschutes-final-2025-09-05-pdf
+    cost: free
+    hours: "0.7"
+    verdict: core
+    confidence: verified
+  - title: "Coolant chemistry: OCP PG25 guideline and Dell's TCS/FWS guidance"
+    description: Skim both for water-quality talking points.
+    url: https://www.opencompute.org/documents/guidelines-for-using-propylene-glycol-based-heat-transfer-fluids-in-single-phase-cold-plate-based-liquid-cooled-racks-final-pdf
+    cost: free
+    hours: "0.5"
+    verdict: core
+    confidence: verified
+    more:
+      - label: Dell coolant guidance
+        url: https://www.delltechnologies.com/asset/en-us/products/servers/industry-market/liquid-coolants-guidance-for-technology-cooling-system-and-facility-water-system-whitepaper.pdf
+      - label: OAI liquid cooling guidelines
+        url: https://www.opencompute.org/documents/oai-system-liquid-cooling-guidelines-in-ocp-template-mar-3-2023-update-pdf
+  - title: NVIDIA's 45 deg C warm-water specification
+    description: What NVIDIA states for the MGX platform.
+    url: https://www.supercomputing.news/emerging/nvidia-45c-warm-water-cooling-mgx-data-center
+    cost: free
+    hours: "0.5"
+    verdict: core
+    confidence: verified
+  - title: "Schneider University: DLC challenges and economizer modes"
+    description: Two free one-hour modules.
+    url: https://university.se.com/catalog/topic/10
+    cost: free
+    hours: "2"
+    verdict: opt
+    confidence: unverified
+    note: Existence and content found via search; not independently confirmed by fetching Schneider's own page directly.
+  - title: "Uptime webinar: direct liquid cooling, pressure is rising"
+    description: Recorded, under an hour.
+    url: https://uptimeinstitute.com/webinars/webinar-direct-liquid-cooling-pressure-is-rising-but-constraints-remain
+    cost: free
+    hours: "1"
+    verdict: opt
+    confidence: verified
+    note: "Opened 2026-10-06: Uptime's own page lists the webinar on demand; viewing needs a free BrightTALK account. Running time was not checked."
+  - title: Vertiv and Stulz continuing-education webinars
+    description: "One-hour sessions with a certificate: CDUs, manifolds, rear-door heat exchangers, liquid-cooling capex and opex."
+    url: https://www.vertiv.com/en-us/about/news-and-insights/events/vertiv-continuing-education-sessions/
+    cost: free
+    hours: 1 each
+    verdict: opt
+    confidence: unverified
+    note: Existence and content found via search; not independently confirmed by fetching the vendor's own page directly.
+  - title: ASHRAE Datacom Book 4, Liquid Cooling Guidelines
+    description: The paid deep reference. The free white paper covers most of what a non-designer needs.
+    url: https://webstore.ansi.org/standards/ashrae/ashraedatacombook2ndedition-2550142
+    cost: paid
+    verdict: later
+    confidence: verified

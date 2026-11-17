@@ -1,0 +1,45 @@
+---
+layout: layouts/index.njk
+title: Sources
+lede: How this site is compiled, and how to send a correction.
+---
+<h2>Where the data lives</h2>
+<p>Every fact on the site comes from a YAML file: one row per provider, exam, vendor course,
+cooling topic, learning-path step, vocabulary term, event or leasing requirement. There is no
+database and no CMS &mdash; the YAML files in the site's own git repository are the whole store.
+Each collection is checked at build time against a schema; a row with a figure carrying no
+source or no checked date fails the build.</p>
+
+<h2>Verified and unverified</h2>
+<p>Every row carries a confidence value. <strong>Verified</strong> means the fact was checked
+directly against the entity's own source &mdash; its own website, filing or documentation
+&mdash; and matched. <strong>Unverified</strong> means the fact could not be confirmed against a
+primary source, or came from a secondary source only; an unverified row also carries a note
+saying what could not be confirmed, and the site renders an "unverified" badge rather than
+hiding the gap. Nothing is guessed: if a number, price or URL can't be confirmed, the row is
+marked unverified with a note instead of being filled in with a best guess.</p>
+
+<h2>What the date means</h2>
+<p>The date shown as &ldquo;Last confirmed&rdquo; is the last time a human or an agent actually opened that row's source URL
+and confirmed at least one field of the row against it. It does not mean every field of the row was checked on that day. It is not the date the row was added, and it is not a
+promise the fact is still true today &mdash; it is a record of when it was last looked at.</p>
+
+<h2>Staleness</h2>
+<p>Over 180 days, the site marks a row's "last confirmed" date in amber &mdash; a nudge, not a
+problem. Over 365 days, the build emits a warning. In both cases staleness never fails the
+build: the site must not break by standing still, so a page that hasn't been re-checked in a
+while stays up, visibly flagged, rather than disappearing or blocking a deploy.</p>
+
+<h2>Company figures are claims, not audits</h2>
+<p>Prices, capacities, specs and dates published by a company about itself are that company's
+own claim, not an independently audited fact. The site links to the primary source so readers
+can judge for themselves; it does not represent vendor-published figures as verified by anyone
+other than the vendor.</p>
+
+<h2>Licence</h2>
+<p>Content and data {{ meta.content_licence }}. Build code {{ meta.code_licence }}.</p>
+
+<h2>Sending a correction</h2>
+<p>Use the <a href="/corrections/">corrections page</a>, linked from every section of the site.
+A source URL is required &mdash; a correction with no source to check it against can't be
+accepted. Accepted corrections are committed with a source and a checked date within a week.</p>

@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neocloud.fyi/schemas/vendor-courses.schema.json",
+  "title": "vendor-courses",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "name",
+      "source",
+      "checked",
+      "confidence",
+      "vendor",
+      "course",
+      "verdict"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "source": {
+        "type": "string",
+        "format": "uri",
+        "pattern": "^https?://"
+      },
+      "checked": {
+        "type": "string",
+        "format": "date"
+      },
+      "confidence": {
+        "enum": [
+          "verified",
+          "unverified"
+        ]
+      },
+      "note": {
+        "type": "string"
+      },
+      "related": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "related_reasons": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "figures": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "label",
+            "value",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string",
+              "pattern": "^https?://"
+            },
+            "checked": {
+              "type": "string",
+              "format": "date"
+            },
+            "confidence": {
+              "enum": [
+                "verified",
+                "unverified"
+              ]
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "vendor": {
+        "type": "string",
+        "minLength": 1
+      },
+      "course": {
+        "type": "string",
+        "minLength": 1
+      },
+      "cost": {
+        "type": "string"
+      },
+      "access": {
+        "type": "string"
+      },
+      "verdict": {
+        "enum": [
+          "core",
+          "opt",
+          "later",
+          "skip"
+        ]
+      }
+    }
+  }
+}

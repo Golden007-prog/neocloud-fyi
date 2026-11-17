@@ -1,0 +1,103 @@
+# Events log. Migrated from research/2026-09-18_draft-site/data-neoclouds.js
+# (window.EVENTS, lines ~121-130) per docs/plan.md Task B6. Draft row shape:
+# [date, headline, source] -> {id, name, date, headline, what, source}.
+#
+# `what`: the schema requires both `headline` and `what`; the draft has only one text field per
+# event. `headline` below is a short title; `what` carries the draft's own descriptive sentence
+# (sometimes lightly reworded to stand on its own once separated from the headline), so no fact
+# is dropped and nothing is duplicated verbatim between the two fields.
+#
+# date: ISO where the draft gives a full day ("30 Oct 2025" -> 2025-10-30); the draft's own
+# month-and-year string where it gives no day ("Mar 2026", "Jun 2026", "Sep 2026").
+#
+# confidence: the draft carries no per-row ok flag for EVENTS. `verified` below means the source
+# was actually opened this session and checked to say what the row says — not just that a URL
+# was present. A first pass marked every row with a draft-supplied URL `verified` on the weaker
+# basis that the URL merely existed; a review caught that this had let one wrong citation
+# through (below) and required every row to be reopened and either confirmed or downgraded. See
+# docs/scrub/B6.md.
+#
+# related: the provider id(s) each event is about, cross-checked against site/data/providers.yml
+# as migrated by Task B1 (running in parallel).
+
+- id: ev-core-scientific-coreweave-vote
+  name: "Core Scientific / CoreWeave"
+  date: 2025-10-30
+  headline: CoreWeave's bid for Core Scientific voted down
+  what: "Core Scientific shareholders rejected CoreWeave's USD 9 billion all-stock takeover offer, and the deal was terminated."
+  source: https://www.cnbc.com/2025/10/30/core-scientific-shareholders-reject-9-billion-coreweave-offer-deal-terminated.html
+  checked: 2026-10-19
+  confidence: verified
+  related: [coreweave, core-scientific]
+
+- id: ev-fluidstack-france-withdrawal
+  name: "Fluidstack — France campus withdrawal"
+  date: "Mar 2026"
+  headline: Fluidstack withdraws from its 1 GW France campus
+  what: "Fluidstack pulled out of its planned 1 GW data-centre campus in France (and a smaller Paris-area site) and turned to the US instead."
+  source: https://www.datacenterdynamics.com/en/news/fluidstack-drops-projects-in-france-to-focus-on-us-report/
+  checked: 2026-09-18
+  confidence: verified
+  related: [fluidstack]
+
+- id: ev-cudo-compute-platform-closure
+  name: "Cudo Compute — on-demand platform closed"
+  date: 2026-03-31
+  headline: Cudo Compute closes its public on-demand GPU platform
+  what: Cudo Compute shut down its public on-demand GPU platform and moved to enterprise-only work.
+  source: https://status.cudocompute.com/
+  checked: 2026-09-18
+  confidence: verified
+  related: [cudo-compute]
+
+- id: ev-microsoft-nscale-norway
+  name: "Microsoft / Nscale — Norway contract"
+  date: 2026-04-15
+  headline: Microsoft takes over the Nscale/Aker Norway compute contract
+  what: "OpenAI stepped back from the Stargate Norway deal with Nscale and Aker after the two sides could not finalise terms, and Microsoft took over the capacity instead."
+  source: https://www.cnbc.com/2026/04/15/openai-stargate-norway-project-microsoft.html
+  checked: 2026-10-19
+  confidence: verified
+  related: [nscale]
+
+- id: ev-cerebras-ipo-pricing
+  name: "Cerebras — IPO priced"
+  date: 2026-05-15
+  headline: Cerebras prices its Nasdaq IPO
+  what: Cerebras Systems priced its initial public offering on Nasdaq.
+  source: https://www.cerebras.ai/press-release/cerebras-systems-announces-pricing-of-initial-public-offering
+  checked: 2026-10-19
+  confidence: verified
+  related: [cerebras]
+
+- id: ev-iren-nostrum-acquisition
+  name: "IREN — Nostrum Group acquisition"
+  date: "Jun 2026"
+  headline: IREN completes its acquisition of Nostrum Group in Spain
+  what: "IREN closed its purchase of Nostrum Group, adding 490 MW of secured grid capacity in Spain to its AI cloud platform."
+  source: https://www.hpcwire.com/off-the-wire/iren-completes-acquisition-of-nostrum-group-expanding-ai-cloud-platform-to-europe/
+  checked: 2026-09-18
+  confidence: verified
+  related: [iren]
+
+- id: ev-coreweave-nebius-nasdaq-100
+  name: "CoreWeave and Nebius — Nasdaq 100"
+  date: "Jun 2026"
+  headline: CoreWeave and Nebius join the Nasdaq 100
+  what: Both neoclouds were added to the Nasdaq-100 index, announced 11 June 2026 and effective before the open on 22 June 2026.
+  source: https://www.investorideas.com/news/2026/technology/06223-nebius-coreweave-join-nasdaq-100.asp
+  checked: 2026-10-19
+  confidence: verified
+  note: "Source corrected. The draft's own URL (a CNBC piece dated 12 Aug 2026, 'CoreWeave gains 19%, Nebius surges 34% in post-earnings neocloud rally') is a real page but reports a post-earnings share rally, not Nasdaq-100 inclusion — it does not support this row's claim and was carried over unopened in an earlier pass. Replaced with a source that directly confirms the index addition and its 11/22 June 2026 dates."
+  related: [coreweave, nebius]
+
+- id: ev-nscale-us-ipo-target
+  name: "Nscale — US IPO target reported"
+  date: "Aug 2026"
+  headline: Nscale reported to be targeting a USD 3 bn US IPO
+  what: Nscale was reported to be targeting a roughly USD 3 billion initial public offering in the US.
+  source: https://www.datacenterdynamics.com/en/news/nscale-targets-3bn-raise-in-us-ipo-report/
+  checked: 2026-10-07
+  confidence: verified
+  note: "Opened in a browser 2026-10-07: Data Center Dynamics, 24 August 2026, relays a Bloomberg report that Nscale is looking to raise up to USD 3 bn in a US IPO that could be held as soon as September 2026. This is a press report of a plan, not a company statement. Date corrected from Sep 2026 to the month of the report."
+  related: [nscale]

@@ -1,0 +1,7 @@
+# Rule 6: operating_model other than unknown with no operating_model_source.
+- id: resells-no-source
+  name: Resells No Source
+  source: https://example.com/about
+  checked: 2026-10-24
+  confidence: verified
+  operating_model: resells

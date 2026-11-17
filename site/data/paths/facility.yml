@@ -1,0 +1,105 @@
+# Facility: medium voltage to the rack
+# Migrated from ../research/2026-09-18_draft-site/data-learning.js PATHS (id: facility), 2026-09-18.
+# Step-level "confidence: unverified" mirrors the draft's ok:0 flag; each carries a note
+# saying what was not independently confirmed. See docs/scrub/B5.md.
+
+id: facility
+name: "Facility: medium voltage to the rack"
+source: https://neocloud.fyi/sources/
+checked: 2026-09-18
+confidence: verified
+note: site's own compiled learning path, synthesised from the sources cited in each step
+hours: 25 to 35 h
+cost: free
+summary: Grid intake, transformers, switchgear, UPS and batteries, redundancy (N+1 or 2N), PUE and commissioning. The aim here is to brief and challenge design engineers, not to replace them. Paid design credentials teach little beyond the free material at that level.
+not_found: CNet does not publish a price for CDCDP.
+related:
+  - rack
+  - ops
+  - fabric
+  - cooling
+related_reasons:
+  rack: The rack figures are the load; this path is everything upstream of the rack PDU.
+  ops: Power capping through DCGM is the lever that connects fleet operations to electrical sizing.
+  fabric: Cable reach decides hall geometry before the electrical layout is drawn.
+  cooling: Cooling plant is the largest non-IT load in the PUE.
+steps:
+  - title: DCD Academy design awareness taster
+    description: One-hour free master class on how a data centre is put together.
+    url: https://www.datacenterdynamics.com/en/dcdacademy/resources/training-taster-session-data-center-design-awareness/
+    cost: free
+    hours: "1"
+    verdict: opt
+    confidence: verified
+  - title: Schneider Electric University data-centre modules
+    description: Fourteen free one-hour modules on power, cooling, racks, cabling, fire and security. Vendor-neutral basics. No AI or liquid-cooling module inside the certified path.
+    url: https://university.se.com/catalog/topic/11
+    cost: free
+    hours: "10.5"
+    verdict: core
+    confidence: unverified
+    note: The module count and hours are as listed on the catalogue page; individual module titles were not independently confirmed.
+  - title: "PUE: a comprehensive examination of the metric"
+    description: The Green Grid's reference paper, via the Berkeley Lab mirror.
+    url: https://datacenters.lbl.gov/sites/default/files/WP49-PUE%20A%20Comprehensive%20Examination%20of%20the%20Metric_v6.pdf
+    cost: free
+    hours: "1.5"
+    verdict: core
+    confidence: verified
+  - title: OCP liquid cooling integration and logistics
+    description: What changes in a building when racks arrive liquid-cooled.
+    url: https://www.opencompute.org/documents/ocp-liquid-cooling-integration-and-logistics-white-paper-revision-1-0-1-pdf
+    cost: free
+    hours: "2"
+    verdict: core
+    confidence: verified
+  - title: "Spain: connecting at medium voltage"
+    description: "The public documents behind a medium-voltage connection in Spain: the ministry's ITC-RAT guide and Royal Decree 337/2014. Each distribution company then publishes its own standard transformer-station specifications; two are linked below as examples. In Spanish. No free course on this was found."
+    url: https://www.boe.es/buscar/doc.php?id=BOE-A-2014-6084
+    cost: free
+    hours: "5"
+    verdict: opt
+    confidence: verified
+    more:
+      - label: Guia ITC-RAT
+        url: https://industria.gob.es/Calidad-Industrial/seguridadindustrial/instalacionesindustriales/instalaciones-alta-tension/Documents/GUIA%20ITC%20RAT%2007%20act%20-%20112-21-033-7.pdf
+      - label: NRZ001
+        url: https://www.edistribucion.com/content/dam/edistribucion/ingenieriadered/NRZ001.pdf
+      - label: FYZ10000 guide
+        url: https://www.edistribucion.com/content/dam/edistribucion/general/descargables/materiales/GdI-FYZ10000.pdf
+  - title: Uptime Institute journal and webinars
+    description: Free articles on liquid-cooling expectations and cooling practice. Full survey PDFs sit behind a form.
+    url: https://journal.uptimeinstitute.com/performance-expectations-of-liquid-cooling-need-a-reality-check/
+    cost: free
+    hours: "2.5"
+    verdict: opt
+    confidence: verified
+  - title: The Datacenter as a Computer, 4th edition
+    description: Open-access book from Google (CC BY 4.0). Chapter 5 covers power and cooling; 3.3 and 6.3 to 6.4 cover AI workloads, accelerators and networking. A hyperscaler's view, not a colocation manual.
+    url: https://doi.org/10.1007/978-3-031-99489-0
+    cost: free
+    hours: "8"
+    verdict: opt
+    confidence: verified
+  - title: "Exam: Schneider DCCA"
+    description: See the exam entry below.
+    url: https://university.se.com/catalog/view/course/id/536/title/Schneider%20Electric%20University%20Data%20Center%20Certified%20Associate%20Exam
+    cost: USD 250
+    verdict: skip
+    confidence: unverified
+    note: Price and pass mark were not independently confirmed beyond community and third-party sources.
+  - title: DCD on-demand Data Center Design Awareness
+    description: Cheapest paid design course if one is ever needed.
+    url: https://learn.dcdacademy.com/courses/data-center-design-awareness
+    cost: USD 1,295
+    verdict: later
+    confidence: unverified
+    note: Price as listed by DCD Academy; not confirmed via a direct fetch of the course page.
+  - title: Uptime ATD or CNet CDCDP
+    description: See the exam entries below. Pick one, never both.
+    url: https://uptimeinstitute.com/education/accredited-tier-designer-atd
+    cost: about USD 5,000
+    hours: 16 h (ATD)
+    verdict: later
+    confidence: verified
+    note: "Opened 2026-10-06: Uptime's ATD page states US$4,985 per participant for 16 hours of live remote instruction: https://atd.uptimeinstitute.com/education/accredited-tier-designer-atd . The cost and hours here are ATD's; CNet publishes no CDCDP price (see the exam entry)."

@@ -1,0 +1,13 @@
+{
+  "name": "neocloud-updater",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Unattended updater for site/data. Design: docs/updater-design.md",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\"",
+    "dry-run": "node run.mjs --dry-run"
+  },
+  "dependencies": { "yaml": "^2.5.1" }
+}

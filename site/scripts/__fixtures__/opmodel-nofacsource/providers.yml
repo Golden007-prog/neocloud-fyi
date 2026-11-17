@@ -1,0 +1,10 @@
+# Trips rule 7: facility without facility_source.
+- id: nofacsource
+  name: No Facility Source
+  source: https://example.com/about
+  checked: 2026-10-24
+  confidence: verified
+  operating_model: owns
+  operating_model_source: https://example.com/terms
+  operating_model_checked: 2026-10-24
+  facility: Somewhere

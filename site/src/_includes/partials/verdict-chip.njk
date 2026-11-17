@@ -1,0 +1,2 @@
+{# Reads: verdict (core|opt|later|skip). #}
+{% if verdict %}<span class="chip {{ verdict }}">{{ {"core":"core","opt":"optional","later":"later","skip":"skip"}[verdict] }}</span>{% endif %}

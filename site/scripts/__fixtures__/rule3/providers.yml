@@ -1,0 +1,7 @@
+# Rule 3: a related id that resolves to nothing.
+- id: dangling
+  name: Dangling
+  source: https://example.com/dangling
+  checked: 2026-09-18
+  confidence: verified
+  related: [does-not-exist]

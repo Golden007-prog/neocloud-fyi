@@ -1,0 +1,8 @@
+# Trips rule 1: unparseable operating_model_source.
+- id: badurl
+  name: Bad Url
+  source: https://example.com/about
+  checked: 2026-10-24
+  confidence: verified
+  operating_model: owns
+  operating_model_source: http://

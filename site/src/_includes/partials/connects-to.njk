@@ -1,0 +1,14 @@
+{# Reads: related = links[id], i.e. [{id, collection, name, url, reason}]. #}
+{% if related and related.length %}
+<section class="connects" aria-labelledby="connects-h">
+  <h2 id="connects-h">Connects to</h2>
+  <ul>
+    {% for r in related %}
+    <li>
+      <a href="{{ r.url }}">{{ r.name }}</a>
+      {% if r.reason %}<span class="why">{{ r.reason }}</span>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

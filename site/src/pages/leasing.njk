@@ -1,0 +1,27 @@
+---
+layout: layouts/index.njk
+eyebrow: Leasing
+title: Leasing
+lede: What a landlord expects before it signs a lease with an AI tenant.
+---
+{% for row in site.leasing %}
+<div class="row" id="{{ row.id }}">
+  <div class="row-head">
+    <h2>{{ row.requirement }}</h2>
+  </div>
+  <p>{{ row.detail }}</p>
+  {% set rel = links[row.id] %}
+  {% if rel and rel.length %}
+  <div class="links">
+    {% for r in rel %}
+    <div><b><a href="{{ r.url }}">{{ r.name }}</a></b>{% if r.reason %}<span>{{ r.reason }}</span>{% endif %}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% set source = row.source %}
+  {% set checked = row.checked %}
+  {% set confidence = row.confidence %}
+  {% set note = row.note %}
+  {% include "partials/source-line.njk" %}
+</div>
+{% endfor %}

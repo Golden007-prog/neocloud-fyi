@@ -1,0 +1,7 @@
+# Rule 4: a source on the braindump deny-list.
+- id: dumped-exam
+  name: Dumped Exam
+  source: https://skillcertpro.com/anything
+  checked: 2026-09-18
+  confidence: verified
+  verdict: skip

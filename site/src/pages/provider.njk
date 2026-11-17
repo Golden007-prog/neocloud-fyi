@@ -1,0 +1,46 @@
+---
+layout: layouts/entry.njk
+pagination:
+  data: site.providers
+  size: 1
+  alias: row
+permalink: "/providers/{{ row.id }}/"
+---
+<section>
+  <h2>HQ</h2>
+  <p>{{ row.hq }}</p>
+
+  <h2>What it sells</h2>
+  <p>{{ row.sells }}</p>
+
+  <h2>Stack</h2>
+  <p>{{ row.stack }}</p>
+
+  <h2>European footprint</h2>
+  <p>{{ row.europe }}</p>
+
+  <h2>Scale</h2>
+  <p>{{ row.scale }}</p>
+
+  <h2>Operating model</h2>
+  <p>Operating model: {{ row.operating_model or "unknown" }}{% if row.operating_model and row.operating_model != "unknown" and row.operating_model_source %} &middot; <a href="{{ row.operating_model_source }}" rel="nofollow noopener">source</a>{% if row.operating_model_checked %} (last confirmed {{ row.operating_model_checked }}){% endif %}{% endif %}{% if row.facility %}. Facility: {{ row.facility }}{% if row.facility_source %} &middot; <a href="{{ row.facility_source }}" rel="nofollow noopener">source</a>{% endif %}{% endif %}</p>
+
+  {% if row.figures and row.figures.length %}
+  <h2>Figures</h2>
+  <table class="figs">
+    <thead><tr><th scope="col">Label</th><th scope="col">Value</th><th scope="col">Source</th></tr></thead>
+    <tbody>
+      {% for f in row.figures %}
+      <tr>
+        <td>{{ f.label }}</td>
+        <td class="v">{{ f.value }}{% if f.confidence == "unverified" %} <span class="unv">unverified</span>{% endif %}</td>
+        <td><a href="{{ f.source }}" rel="nofollow noopener">source</a>{% if f.checked %} &middot; {{ f.checked | isoDate }}{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  <h2>Cite this row</h2>
+  <p class="cite" id="cite">{{ row.name }}, neocloud.fyi, row last confirmed {{ row.checked | isoDate }}{% if row.confidence == "unverified" %} (unverified){% endif %}. Source: <a href="{{ row.source }}" rel="nofollow noopener">{{ row.source }}</a>. <a href="https://neocloud.fyi/providers/{{ row.id }}/">https://neocloud.fyi/providers/{{ row.id }}/</a></p>
+</section>

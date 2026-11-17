@@ -1,0 +1,162 @@
+# Vocabulary glossary. Migrated from research/2026-09-18_draft-site/data-neoclouds.js
+# (window.VOCAB, lines ~106-119) per docs/plan.md Task B6. Draft row shape:
+# [term, definition, source, path] -> {id, name, term, definition, source, path}.
+#
+# confidence: the draft carries no per-row ok flag for VOCAB (that column only exists on
+# NEOCLOUDS). `verified` below means the source was actually opened this session and checked
+# against the row's own claim, not merely that a URL existed in the draft. A first pass of this
+# file marked every row with a real URL `verified` on that weaker basis; a review caught one
+# wrong citation elsewhere in this package (see events.yml) and flagged that method as unsound
+# here too, so every row was reopened. Where the opened page did not fully support the claim,
+# the row was downgraded to `unverified` with a note saying what the source does and does not
+# cover, rather than left as an unearned `verified`. See docs/scrub/B6.md.
+#
+# related: each row's own `path` value (fabric, ops, rack, facility, cooling) is carried into
+# `related` too, so the vocabulary entry links back to its learning path via the Connects-to
+# block. Those path ids belong to Task B5, running in parallel.
+
+- id: vocab-sunk
+  name: SUNK
+  term: SUNK
+  definition: "CoreWeave's Slurm on Kubernetes: one bare-metal fleet serves batch and cloud-native jobs."
+  source: https://www.coreweave.com/blog/sunk-slurm-on-kubernetes-implementations
+  checked: 2026-09-18
+  confidence: verified
+  path: ops
+  related: [ops]
+
+- id: vocab-soperator
+  name: Soperator
+  term: Soperator
+  definition: "Nebius's open-source Kubernetes operator for Slurm, with a shared root filesystem."
+  source: https://github.com/nebius/soperator
+  checked: 2026-09-18
+  confidence: verified
+  path: ops
+  related: [ops]
+
+- id: vocab-slinky
+  name: Slinky
+  term: Slinky
+  definition: "SchedMD's Slurm and Kubernetes projects: an operator that runs Slurm in pods and a bridge that lets Slurm schedule pods. SchedMD is now part of NVIDIA."
+  source: https://slinky.schedmd.com/docs/
+  checked: 2026-09-18
+  confidence: verified
+  path: ops
+  related: [ops]
+
+- id: vocab-mission-control
+  name: Mission Control
+  term: Mission Control
+  definition: "NVIDIA's AI factory management platform. Its licence bundles Base Command Manager, Run:ai, Unified Fabric Manager and NetQ."
+  source: https://docs.nvidia.com/mission-control/
+  checked: 2026-10-06
+  confidence: verified
+  note: "Opened 2026-10-06: definition rewritten to match NVIDIA's Mission Control documentation, which lists Base Command Manager, Run:ai, Unified Fabric Manager and NetQ as the bundled software."
+  path: ops
+  related: [ops]
+
+- id: vocab-bcm
+  name: "BCM, Base Command Manager"
+  term: "BCM, Base Command Manager"
+  definition: "NVIDIA's provisioning tool: images, node roles, cluster administration. Free for up to 8 accelerators."
+  source: https://docs.nvidia.com/pdf/base-command-manager-free-license-faq.pdf
+  checked: 2026-09-18
+  confidence: verified
+  path: ops
+  related: [ops]
+
+- id: vocab-dcgm
+  name: DCGM
+  term: DCGM
+  definition: "Data Center GPU Manager: health, diagnostics, power and policy across a fleet, with a Prometheus exporter."
+  source: https://developer.nvidia.com/dcgm
+  checked: 2026-09-18
+  confidence: verified
+  path: ops
+  related: [ops]
+
+- id: vocab-nccl-tests
+  name: NCCL tests and burn-in
+  term: NCCL tests and burn-in
+  definition: "All-reduce benchmarks used as the acceptance test for a new cluster; they expose bad links before production."
+  source: https://www.together.ai/blog/a-practitioners-guide-to-testing-and-running-large-gpu-clusters-for-training-generative-ai-models
+  checked: 2026-09-18
+  confidence: verified
+  note: "Source changed from the draft's github.com/NVIDIA/nccl-tests (whose own README only claims to check performance and correctness, not cluster acceptance) to Together AI's practitioner's guide, which explicitly describes running NCCL tests across a cluster to find bad nodes, leaf switches or spine switches before production."
+  path: fabric
+  related: [fabric]
+
+- id: vocab-infiniband-vs-spectrum-x
+  name: InfiniBand vs Spectrum-X
+  term: InfiniBand vs Spectrum-X
+  definition: "InfiniBand is deterministic and still leads in SuperPODs. Spectrum-X brings lossless behaviour, adaptive routing and telemetry to Ethernet and closes most of the gap."
+  source: https://www.weka.io/learn/enterprise-technology/nvidia-spectrum-x/
+  checked: 2026-09-18
+  confidence: verified
+  note: "Opened this session. The page confirms InfiniBand as more deterministic and dominant in SuperPODs/TOP500 systems, and Spectrum-X's congestion-aware, adaptive routing on Ethernet; it does not use the word \"lossless\" itself, though it describes the same congestion-control behaviour."
+  path: fabric
+  related: [fabric]
+
+- id: vocab-ufm-netq-wjh
+  name: "UFM, NetQ, WJH"
+  term: "UFM, NetQ, WJH"
+  definition: "UFM is NVIDIA's fabric manager. NetQ is its network monitoring and validation tool, and WJH (What Just Happened) is used to diagnose congestion and packet loss. All three are named in the NCP-AIN exam objectives."
+  source: https://dam-cdn.nvd.orangelogic.com/AssetLink/32ljugfxg1hs1sd42371npw1xmcuo1yo.pdf
+  checked: 2026-10-07
+  confidence: verified
+  note: "Opened 2026-10-07: NVIDIA's NCP-AIN study guide (PDF, read as text) lists NetQ, What Just Happened (WJH) and UFM among the exam's tools, for example 'Diagnose congestion or packet loss using in-band telemetry and NVIDIA What Just Happened (WJH) services' and 'Use NetQ for real-time network monitoring'. NVIDIA's NetQ 5.3 user guide has a 'Configure and Monitor What Just Happened' chapter. The UFM Enterprise manual (https://docs.nvidia.com/networking/display/UFMEnterpriseUMv6170/UFM+Overview) describes UFM as a fabric manager."
+  path: fabric
+  related: [fabric]
+
+- id: vocab-run-ai-kai-scheduler
+  name: "Run:ai and KAI Scheduler"
+  term: "Run:ai and KAI Scheduler"
+  definition: "NVIDIA's Kubernetes GPU scheduler with fractional GPUs and quotas. Its scheduling core is open source as KAI Scheduler."
+  source: https://www.nvidia.com/en-us/software/run-ai/
+  checked: 2026-09-18
+  confidence: verified
+  path: ops
+  related: [ops]
+
+- id: vocab-pyxis-enroot
+  name: Pyxis and Enroot
+  term: Pyxis and Enroot
+  definition: "Containers for Slurm jobs without a daemon: srun --container-image."
+  source: https://github.com/NVIDIA/pyxis
+  checked: 2026-09-18
+  confidence: verified
+  path: ops
+  related: [ops]
+
+- id: vocab-gpudirect-storage
+  name: "GPUDirect Storage; VAST, WEKA, DDN"
+  term: "GPUDirect Storage; VAST, WEKA, DDN"
+  definition: "Storage that feeds GPUs without passing through the CPU, and the three vendors most often named beside GPU clusters."
+  source: https://docs.nvidia.com/gpudirect-storage/overview-guide/
+  checked: 2026-10-06
+  confidence: verified
+  note: "Opened 2026-10-06: NVIDIA's GPUDirect Storage overview defines GDS as a direct path between GPU memory and storage that avoids a bounce buffer through the CPU, and names DDN EXAScaler, VAST NFS and WekaFS among supported file systems. That the three are the vendors most often named is this site's reading, not NVIDIA's."
+  path: fabric
+  related: [fabric]
+
+- id: vocab-cdu-tcs-fws
+  name: "CDU, TCS, FWS"
+  term: "CDU, TCS, FWS"
+  definition: "Coolant distribution unit, and the two loops it separates: technology cooling system in the rack, facility water system in the building."
+  source: https://www.vertiv.com/en-us/insights/articles/educational-articles/understanding-coolant-distribution-units-cdus-for-liquid-cooling/
+  checked: 2026-09-18
+  confidence: verified
+  note: "The Vertiv page defines CDU thoroughly and confirms it isolates the facility water loop from the technology cooling loop, but only names \"TCS\" and \"FWS\" in passing without spelling out or defining either acronym directly; the two-loop separation this row describes is well supported, the specific acronym expansions are more loosely supported by this source."
+  path: cooling
+  related: [cooling]
+
+- id: vocab-critical-it-load
+  name: Critical IT load
+  term: Critical IT load
+  definition: "The power delivered to IT equipment, as opposed to gross site power. The number leases are priced on."
+  source: https://www.adventuresincre.com/glossary/it-load-critical-load/
+  checked: 2026-09-18
+  confidence: verified
+  path: facility
+  related: [facility]

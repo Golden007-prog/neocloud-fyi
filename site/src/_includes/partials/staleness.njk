@@ -1,0 +1,4 @@
+{# Reads: checked. Amber over 180 days, red over 365. Never blocks anything. #}
+{% set age = checked | ageDays %}
+{% if age and age > 365 %}<span class="stale stale-old">last confirmed {{ checked | isoDate }}</span>
+{% elif age and age > 180 %}<span class="stale">last confirmed {{ checked | isoDate }}</span>{% endif %}

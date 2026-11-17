@@ -1,0 +1,64 @@
+---
+layout: layouts/index.njk
+lede: A map of the neoclouds and the knowledge needed to build and run one.
+---
+<p><strong>A source-linked evidence corpus, work in progress.</strong> Figures are as published by
+the companies, not audits. Where a figure could not be confirmed, the row says so.</p>
+
+<p>Every row on this site is a public fact: a provider's own page, a vendor's own exam guide,
+a filing, a press release. Each one carries a source link and a date it was last checked — see
+<a href="/sources/">how this is compiled</a>. Prices, capacities and specs published by a
+company about itself are that company's own claim, not an independent audit. Found something
+wrong, missing or out of date? <a href="/corrections/">Send a correction</a>.</p>
+
+<p>New to this? Start with <a href="/what-is-a-neocloud/">what a neocloud is, and how to check one</a>.</p>
+
+<div class="map">
+{% set cardCopy = {
+  "Providers": "Neoclouds, marketplaces, inference platforms and the landlords behind them.",
+  "Paths": "Ordered learning paths: fabric, ops, rack, facility, cooling.",
+  "Exams": "Vendor exams worth sitting, and the ones to skip.",
+  "Courses": "Vendor courses, mapped against the exams they prepare you for.",
+  "Cooling": "CDU and TCS/FWS loops, dry coolers, and the rest of the cooling stack.",
+  "Vocabulary": "Terms from SUNK to GPUDirect Storage, each sourced.",
+  "Events": "Dated, sourced developments in neocloud land.",
+  "Leasing": "What a landlord expects before it signs with an AI tenant."
+} %}
+{% set cardCount = {
+  "Providers": site.providers.length,
+  "Paths": site.paths.length,
+  "Exams": site.exams.length,
+  "Courses": site["vendor-courses"].length,
+  "Cooling": site["cooling-topics"].length,
+  "Vocabulary": site.vocabulary.length,
+  "Events": site.events.length,
+  "Leasing": site.leasing.length
+} %}
+{% for n in meta.nav %}
+{% if n.label != "About" and n.label != "Start here" %}
+  <a href="{{ n.url }}">
+    <h2>{{ n.label }}</h2>
+    <p class="meta">{{ cardCount[n.label] }} &middot; {{ cardCopy[n.label] }}</p>
+  </a>
+{% endif %}
+{% endfor %}
+</div>
+
+<section id="recent">
+  <h2>Recently confirmed</h2>
+  <ul class="recent">
+  {% for r in site.providers | recentlyChecked(5) %}
+    <li><a href="/providers/{{ r.id }}/">{{ r.name }}</a> &middot; last confirmed {{ r.checked | isoDate }}</li>
+  {% endfor %}
+  </ul>
+</section>
+
+<div>
+  <p>Steps, exams and courses carry a verdict:</p>
+  <ul class="legend">
+    <li><span class="chip core">Core</span> do this</li>
+    <li><span class="chip opt">Optional</span> useful, not required</li>
+    <li><span class="chip later">Later</span> worth it eventually</li>
+    <li><span class="chip skip">Skip</span> not worth the time</li>
+  </ul>
+</div>

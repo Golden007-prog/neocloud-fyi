@@ -1,0 +1,6 @@
+# Passes: the field is absent (treated as unknown).
+- id: no-operating-model
+  name: No Operating Model
+  source: https://example.com/about
+  checked: 2026-10-24
+  confidence: verified

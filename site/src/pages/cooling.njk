@@ -1,0 +1,19 @@
+---
+layout: layouts/index.njk
+eyebrow: Cooling
+title: Cooling topics
+lede: Thirteen questions about liquid cooling in an AI hall, each with its own individually sourced figures — most are still unverified by design.
+---
+<div class="idx-wrap">
+<table class="idx">
+  <thead><tr><th scope="col">Topic</th><th scope="col">What it covers</th></tr></thead>
+  <tbody>
+    {% for row in site["cooling-topics"] %}
+    <tr>
+      <td><a href="/cooling/{{ row.id }}/">{{ row.name }}</a></td>
+      <td>{{ row.body.split(". ")[0] }}.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>

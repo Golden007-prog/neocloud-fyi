@@ -1,0 +1,8 @@
+# Trips rule 4: operating_model_source on a deny-listed host.
+- id: denyhost
+  name: Deny Host
+  source: https://example.com/about
+  checked: 2026-10-24
+  confidence: verified
+  operating_model: owns
+  operating_model_source: https://www.skillcertpro.com/page

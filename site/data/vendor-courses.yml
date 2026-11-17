@@ -1,0 +1,229 @@
+# Vendor training and certification catalogue for AI-infrastructure / liquid-cooled
+# data-centre roles. Migrated from research/2026-09-18_draft-site/data-learning.js
+# (window.VENDORS) plus research/2026-09-18_agent-returns/04_vendor-courses.md.
+# Two rows from the draft had no URL and no public source and were removed rather than
+# given an invented one; see docs/scrub/B3.md.
+- id: course-schneider-dcca
+  name: Schneider Electric University, DCCA path
+  vendor: Schneider Electric
+  course: Schneider Electric University, DCCA path
+  cost: 14 free modules, exam about USD 250
+  access: Open to anyone
+  source: https://www.se.com/us/en/about-us/university/
+  checked: 2026-09-18
+  confidence: unverified
+  note: The exam price (about USD 250) and the 14-module/~10.5h course count are from community-forum and prep-guide sources, not confirmed on se.com itself.
+  verdict: core
+
+- id: course-nvidia-doca
+  name: Introduction to DOCA for DPUs
+  vendor: NVIDIA
+  course: Introduction to DOCA for DPUs
+  cost: Free, 2 h
+  access: Open
+  source: https://developer.nvidia.com/blog/free-dli-course-introduction-to-doca-for-dpus
+  checked: 2026-09-18
+  confidence: verified
+  verdict: opt
+
+- id: course-nvidia-bluefield
+  name: BlueField DPU Administration
+  vendor: NVIDIA
+  course: BlueField DPU Administration
+  cost: USD 50, self-paced, 4 h
+  access: Open
+  source: https://www.nvidia.com/en-us/learn/learning-paths/ai-networking/
+  checked: 2026-11-09
+  confidence: verified
+  note: "Opened 2026-10-06: NVIDIA's AI networking learning path lists BlueField DPU Administration as self-paced, USD 50, 4 hours. The old academy.nvidia.com course URL redirects to a generic landing page, so the source now points at the learning path."
+  verdict: later
+
+- id: course-vertiv-ce-webinars
+  name: "Continuing-education webinars: CDUs, manifolds, rear-door heat exchangers"
+  vendor: Vertiv
+  course: "Continuing-education webinars: CDUs, manifolds, rear-door heat exchangers"
+  cost: Free, about 1 h each, CEU certificate
+  access: Open
+  source: https://www.vertiv.com/en-us/about/news-and-insights/events/vertiv-continuing-education-sessions/
+  checked: 2026-09-18
+  confidence: unverified
+  note: "Re-checked 2026-09-18 directly on vertiv.com/en-us/about/news-and-insights/events/vertiv-continuing-education-sessions/: the page shows 'Available CEU sessions (0)' and an access message reading 'Your account is restricted to access this link. Please contact Vertiv Partner Support', which is in tension with the recorded 'Open' access. Price, duration and CEU-certificate details could not be confirmed from the page itself. Access is left recorded as 'Open': there is not enough evidence to say the access model has actually changed."
+  verdict: opt
+
+- id: course-stulz-dlc-webinars
+  name: Direct liquid cooling webinars
+  vendor: Stulz
+  course: Direct liquid cooling webinars
+  cost: Free, attendance certificate
+  access: Open
+  source: https://info.stulz-usa.com/direct-liquid-cooling-webinar-completion-certificate
+  checked: 2026-09-18
+  confidence: unverified
+  note: "Opened 2026-10-07 by fetch: the page offers one webinar, 'Direct Liquid Cooling CAPEX and OPEX' with CoolIT Systems, and says a certificate of completion is emailed after watching it. The page text carries no price and does not say 'free', and it names one webinar, not several. Stays unverified until the price is stated somewhere."
+  verdict: opt
+
+- id: course-ocp-academy
+  name: "OCP Academy: liquid cooling, Deschutes CDU, Open Rack V3"
+  vendor: OCP
+  course: "OCP Academy: liquid cooling, Deschutes CDU, Open Rack V3"
+  cost: Free
+  access: Open
+  source: https://academy.opencompute.org/learn
+  checked: 2026-09-18
+  confidence: verified
+  note: "academy.opencompute.org/learn is a JavaScript application (Docebo LMS) that returns only a loading shell to a plain fetch. Existence of a free, roughly 40-minute Project Deschutes CDU course and an Open Rack V3 course is corroborated by the Open Compute Project's own blog post announcing the OCP Academy launch and OCP's own account on X, both confirming free access."
+  verdict: core
+
+- id: course-amd-rocm-certified
+  name: ROCm Certified Developer, Associate
+  vendor: AMD
+  course: ROCm Certified Developer, Associate
+  cost: "Free, labs on Instinct GPUs, Credly badge (launched Aug 2026)"
+  access: Open
+  source: https://developer.amd.com/rocm-certified/
+  checked: 2026-09-18
+  confidence: verified
+  verdict: opt
+
+- id: course-dell-ai-foundations
+  name: AI Server and Infrastructure Foundations with NVIDIA
+  vendor: Dell
+  course: AI Server and Infrastructure Foundations with NVIDIA
+  cost: Badge, price not published
+  access: Open
+  source: https://learning.dell.com/content/dell/en-us/home/certification-overview/certificationandbadges/ai-server---infrastructure-foundations-with-nvidia.html
+  checked: 2026-09-18
+  confidence: verified
+  verdict: later
+
+- id: course-cisco-dcai
+  name: 300-640 DCAI
+  vendor: Cisco
+  course: 300-640 DCAI
+  cost: USD 300
+  access: Open
+  source: https://www.cisco.com/site/us/en/learn/training-certifications/exams/dcai.html
+  checked: 2026-09-18
+  confidence: verified
+  note: "Confirmed directly on cisco.com 2026-09-18: '$US300, or use Cisco Learning Credits'; exam duration 90 minutes."
+  verdict: later
+
+- id: course-vast-vcp-ad1
+  name: VASTronaut Certified Administrator, VCP-AD1
+  vendor: VAST Data
+  course: VASTronaut Certified Administrator, VCP-AD1
+  cost: USD 300, proctored
+  access: Open
+  source: https://www.vastdata.com/vast-certification-program
+  checked: 2026-10-19
+  confidence: verified
+  note: "Confirmed directly on vastdata.com/vast-certification-program 2026-09-18: USD 300, described as a proctored online exam."
+  verdict: later
+
+- id: course-pure-storage-certs
+  name: Associate to Expert certifications
+  vendor: Pure Storage
+  course: Associate to Expert certifications
+  cost: USD 200 to 400
+  access: Open
+  source: https://www.purestorage.com/services/certifications/data-storage-associate.html
+  checked: 2026-10-24
+  confidence: verified
+  note: "Re-opened 2026-10-24 on the vendor page (the certification brand now reads Everpure). Its FAQ states each Associate exam costs $200, each Professional and Specialist exam $300 and each Expert exam $400, valid for three years. Course content behind the academy login was not read."
+  verdict: later
+
+- id: course-weka-technical-xpert
+  name: Technical Xpert learning plan
+  vendor: WEKA
+  course: Technical Xpert learning plan
+  cost: No cost stated, badge
+  access: Partners and end users
+  source: https://www.weka.io/partners/certifications/
+  checked: 2026-09-18
+  confidence: verified
+  note: "Confirmed directly on weka.io/partners/certifications/ 2026-09-18: no cost stated; the certification is described as being for 'partners and end-users', matching the recorded access value."
+  verdict: later
+
+- id: course-hpe-hpc-portfolio
+  name: "HPC portfolio, including Cray EX"
+  vendor: HPE
+  course: "HPC portfolio, including Cray EX"
+  cost: "Pricing shown on enrolment; learning credits accepted; free trial of the on-demand Digital Learner library"
+  access: Open
+  source: https://education.hpe.com/ww/en/training/portfolio/hpc.html
+  checked: 2026-10-07
+  confidence: verified
+  note: "Opened 2026-10-07: HPE's HPC training page lists HPE Cray EX Systems, HPE Slingshot and HPE Performance Cluster Manager courses, says 'Select Enroll to see schedule and pricing information', offers Learning Credits as a purchase option, and links a free trial of Digital Learner. It states no trial length and does not name Slurm, so '7-day' and 'with Slurm' were removed from the row."
+  verdict: later
+
+- id: course-eaton-power-in-focus
+  name: Power in Focus data-centre training
+  vendor: Eaton
+  course: Power in Focus data-centre training
+  cost: Price not published
+  access: Registration required
+  source: https://www.eaton.com/us/en-us/company/global-experience/north-america-locations/power-in-focus/data-centers.html
+  checked: 2026-10-07
+  confidence: verified
+  note: "Opened in a browser 2026-10-07 (the old experience-centers URL redirects here; scripted fetches from this machine time out). The page offers online data-centre power courses with professional development hours, behind a registration form for the learning portal. It states no price and does not say the courses are free."
+  verdict: later
+
+- id: course-intel-gaudi-accelerator
+  name: Gaudi accelerator courses
+  vendor: Intel
+  course: Gaudi accelerator courses
+  cost: Free training; no confirmed certification
+  access: Open
+  source: https://builders.intel.com/university/coursescategory/intel-gaudi-ai-accelerator
+  checked: 2026-09-18
+  confidence: unverified
+  note: "Opened in a browser 2026-10-07: the Intel Gaudi curriculum page lists 3 courses (AI market, hardware, software and cluster topics). It does not say the training is free and uses no certification wording, so 'Free training' is not confirmed by the page; 'no confirmed certification' is consistent with it. Stays unverified."
+  verdict: later
+
+- id: course-arista-ace
+  name: ACE learning tracks (restructured 2025)
+  vendor: Arista
+  course: ACE learning tracks (restructured 2025)
+  cost: "USD 495 to 1,995 per Learning Track; USD 4,995 per year for the All-Access Pass"
+  access: Open
+  source: https://www.training.arista.com/
+  checked: 2026-10-19
+  confidence: verified
+  note: "Confirmed directly on training.arista.com 2026-09-18. The 2025 restructuring is confirmed: the Enhanced Certification Program with Learning Tracks launched June 2025, replacing the earlier Arista Cloud Engineer program; the legacy Level 1-5 exams reached end of life 2025-12-31."
+  verdict: later
+
+- id: course-supermicro-dlc-associate
+  name: Direct Liquid Cooling Service Associate
+  vendor: Supermicro
+  course: Direct Liquid Cooling Service Associate
+  cost: Only question-dump sites mention it; no official public page
+  access: Partner or service channel
+  source: https://www.supermicro.com/en/channel-training
+  checked: 2026-09-18
+  confidence: unverified
+  note: "Re-checked 2026-09-18 directly on supermicro.com/en/channel-training: no 'Direct Liquid Cooling Service Associate' course or certification is listed. The only DLC-related item on the page is a 2025-06-26 product webinar, not a certification. No question-dump source was consulted or cited for this row."
+  verdict: skip
+
+- id: course-motivair-factory-certified
+  name: Factory-certified training
+  vendor: Motivair (Schneider)
+  course: Factory-certified training
+  cost: 3-day seminars twice a year
+  access: Partners only
+  source: https://www.motivaircorp.com/services/factory-certified-training/
+  checked: 2026-09-18
+  confidence: verified
+  note: "www.motivaircorp.com/services/factory-certified-training/ returned HTTP 403 to a direct fetch this session (likely bot-blocking). Indexed content from that same URL confirms bi-annual three-day training seminars for distributor and service-associate partners, plus a separate two-day ChilledDoor/CDU seminar for partners, customers and service providers — matching the recorded '3-day seminars twice a year' and 'Partners only'."
+  verdict: skip
+
+- id: course-lenovo-neptune
+  name: Neptune liquid-cooling courses
+  vendor: Lenovo
+  course: Neptune liquid-cooling courses
+  cost: Behind the employee and partner portals
+  access: Partners only
+  source: https://lenovopress.lenovo.com/course/sxtw1115
+  checked: 2026-09-18
+  confidence: verified
+  note: "Confirmed directly on lenovopress.lenovo.com/course/sxtw1115 2026-09-18: an employee Grow@Lenovo link and a partner Lenovo 360 Learning Center link are both given, matching 'behind the employee and partner portals'. Course code SXTW1115, 15 minutes, published 2025-06-17."
+  verdict: skip

@@ -1,0 +1,119 @@
+# Fabric: InfiniBand and Spectrum-X Ethernet
+# Migrated from ../research/2026-09-18_draft-site/data-learning.js PATHS (id: fabric), 2026-09-18.
+# Step-level "confidence: unverified" mirrors the draft's ok:0 flag; each carries a note
+# saying what was not independently confirmed. See docs/scrub/B5.md.
+
+id: fabric
+name: "Fabric: InfiniBand and Spectrum-X Ethernet"
+source: https://neocloud.fyi/sources/
+checked: 2026-09-18
+confidence: verified
+note: site's own compiled learning path, synthesised from the sources cited in each step
+hours: about 24 h
+cost: USD 630 to 660 with the exam
+summary: "How GPUs talk to each other across racks. Two fabrics compete: InfiniBand, and NVIDIA Spectrum-X, which brings lossless Ethernet (RoCE), adaptive routing and telemetry to standard Ethernet. The exam weighs them equally at 30 % each; troubleshooting tools are another 20 %."
+not_found: No first-person pass reports, no official practice exam and no credible video series were found. Sites selling 'actual questions' are dumps and break the exam agreement.
+related:
+  - ops
+  - rack
+  - facility
+  - cooling
+related_reasons:
+  ops: The Slurm topology plugin and NCCL both model this fabric. The NVIDIA Network Operator (5 % of the exam) is the seam with Kubernetes.
+  rack: Passive copper reaches 1.5 to 3 m, active copper about 7 m, optics 50 m to 2 km. Those limits decide which racks must stand together.
+  facility: Cable limits set row pitch and tray sizes. Every 400G or 800G optic draws roughly 10 to 30 W, which lands in the rack power and cooling budget.
+  cooling: Copper NVLink harnesses and coolant hoses compete for the same space at the back of the rack.
+steps:
+  - title: Introduction to Networking
+    description: Generic networking primer. Skim if you already run networks.
+    url: https://academy.nvidia.com/en/course/introduction-to-networking/
+    cost: free
+    hours: "2"
+    verdict: opt
+    confidence: verified
+    note: "Opened 2026-10-06: NVIDIA's AI networking learning path lists this course as self-paced, free, 2 hours: https://www.nvidia.com/en-us/learn/learning-paths/ai-networking/"
+  - title: InfiniBand Essentials
+    description: "Short official primer: subnet manager, LIDs, partition keys, the vocabulary of the fabric."
+    url: https://academy.nvidia.com/en/course/infiniband-essentials/
+    cost: free
+    hours: "1.5"
+    verdict: core
+    confidence: verified
+  - title: Cumulus Linux Essentials
+    description: "The Cumulus course NVIDIA actually links from the exam page: CLI, interfaces, routing, bonds, bridges."
+    url: https://academy.nvidia.com/en/course/nvidia-cumulus-linux-essentials/
+    cost: free
+    hours: "1.5"
+    verdict: core
+    confidence: verified
+  - title: InfiniBand Network Administration
+    description: "The one paid course worth it: configuration, QoS, adaptive routing, partition keys, UFM. Maps onto a full 30 % domain."
+    url: https://www.nvidia.com/en-us/training/academy/course-detail?id=course%3A15139854
+    cost: USD 200
+    hours: "6"
+    verdict: core
+    confidence: verified
+  - title: NVIDIA DSX Air simulator
+    description: Cloud simulator for Cumulus switches, Spectrum-X, SuperNICs and NetQ. Rehearse NVUE, BGP-EVPN and RoCE configuration without hardware. Confirm the free tier at sign-up.
+    url: https://dsx-air.nvidia.com/
+    cost: free trial
+    hours: "5"
+    verdict: core
+    confidence: verified
+    note: "Opened 2026-10-06: NVIDIA's DSX Air account-setup docs describe a one-year free trial (60 vCPUs, 60 GiB, 10,000 compute hours) started by an NGC organisation owner; a business email is required and usage is otherwise billed per compute hour: https://docs.nvidia.com/dsx-air/account-setup/"
+  - title: Read the docs instead of a course
+    description: UFM overview and diagnostics, the NVUE reference, the NCCL guide and the MLNX_OFED to DOCA-OFED transition guide.
+    url: https://docs.nvidia.com/networking/display/UFMEnterpriseUMv6170/UFM+Overview
+    cost: free
+    hours: "4"
+    verdict: core
+    confidence: verified
+    more:
+      - label: NVUE reference
+        url: https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/System-Configuration/NVIDIA-User-Experience-NVUE/
+      - label: NCCL guide
+        url: https://docs.nvidia.com/deeplearning/nccl/install-guide/index.html
+      - label: DOCA-OFED transition
+        url: https://docs.nvidia.com/doca/sdk/mlnx_ofed-to-doca-ofed-transition-guide/index.html
+  - title: Introduction to DOCA for DPUs
+    description: Free two-hour course on BlueField DPUs and the DOCA framework, the part of the fabric that lives in the server.
+    url: https://developer.nvidia.com/blog/free-dli-course-introduction-to-doca-for-dpus
+    cost: free
+    hours: "2"
+    verdict: opt
+    confidence: verified
+  - title: Half a day on a rented InfiniBand cluster
+    description: "Two GPU nodes with real InfiniBand: run nccl-tests, perftest, ibstat and ibdiagnet, and keep the numbers. Verda and RunPod bill by the hour with no minimum; Lambda needs 16 GPUs for two weeks."
+    url: https://verda.com/instant-clusters
+    cost: USD 30 to 60
+    hours: "4"
+    verdict: core
+    confidence: verified
+    more:
+      - label: RunPod Instant Clusters
+        url: https://docs.runpod.io/instant-clusters
+      - label: nccl-tests
+        url: https://github.com/NVIDIA/nccl-tests
+  - title: Cumulus Linux Administration
+    description: Deeper paid boot camp. The free Essentials course plus the simulator covers what the exam asks.
+    url: https://academy.nvidia.com/en/course/cumulus-linux-boot-camp/
+    cost: USD 100
+    hours: "5"
+    verdict: skip
+    confidence: verified
+    note: "Opened 2026-10-06: NVIDIA's AI networking learning path lists this course as self-paced, USD 100, 5 hours: https://www.nvidia.com/en-us/learn/learning-paths/ai-networking/"
+  - title: Spectrum-X Administration, instructor-led
+    description: Twelve hours for USD 1,500. The documentation and simulator cover the same objectives.
+    url: https://www.nvidia.com/en-us/training/academy/
+    cost: USD 1,500
+    hours: "12"
+    verdict: skip
+    confidence: verified
+    note: "Opened 2026-10-06: NVIDIA's AI networking learning path lists the Spectrum-X Networking Platform Administration private workshop as instructor-led, USD 1,500, 12 hours: https://www.nvidia.com/en-us/learn/learning-paths/ai-networking/"
+  - title: "Exam: NCP-AIN"
+    description: See the exam entry below.
+    url: https://www.nvidia.com/en-us/learn/certification/ai-networking-professional/
+    cost: USD 400
+    hours: "2"
+    verdict: core
+    confidence: verified

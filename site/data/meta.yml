@@ -1,0 +1,21 @@
+# Site chrome: title, byline, licences, corrections mailbox, navigation.
+
+title: neocloud.fyi
+description: A map of the neoclouds and the knowledge needed to build and run one.
+byline: Compiled by Joan Marc Riera Duocastella
+linkedin: https://www.linkedin.com/in/joanmarcriera/
+content_licence: CC BY-NC 4.0
+code_licence: PolyForm Noncommercial 1.0.0
+corrections_email: corrections@neocloud.fyi
+nav:
+  - { label: Start here, url: /what-is-a-neocloud/ }
+  - { label: Providers,  url: /providers/ }
+  - { label: Paths,      url: /paths/ }
+  - { label: Exams,      url: /exams/ }
+  - { label: Courses,    url: /courses/ }
+  - { label: Cooling,    url: /cooling/ }
+  - { label: Vocabulary, url: /vocabulary/ }
+  - { label: Events,     url: /events/ }
+  - { label: Leasing,    url: /leasing/ }
+  - { label: About,      url: /about/ }
+

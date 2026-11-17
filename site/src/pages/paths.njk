@@ -1,0 +1,16 @@
+---
+layout: layouts/index.njk
+eyebrow: Learning paths
+title: The five learning paths
+lede: Five self-study routes through what a neocloud operator needs to know — fabric, operations, racks, facility power and cooling. Every step is sourced and marked core, optional, later or skip.
+---
+<div class="map">
+  {% for row in site.paths %}
+  <a href="/paths/{{ row.id }}/">
+    <h2>{{ row.name.split(":")[0] }}</h2>
+    <span>{{ row.name.split(": ")[1] }}</span>
+    <span>{{ row.summary }}</span>
+    <span class="meta">{{ row.hours }} &middot; {{ row.cost }}</span>
+  </a>
+  {% endfor %}
+</div>

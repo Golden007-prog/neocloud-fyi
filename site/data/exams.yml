@@ -1,0 +1,182 @@
+# Exam catalogue. Migrated from research/2026-09-18_draft-site/data-learning.js (window.EXAMS,
+# lines ~130-172) per docs/plan.md Task B2. The `f` array on each draft row is split into
+# vendor/price/format/proctoring/validity in its existing order; rows whose draft array had
+# fewer than five elements simply leave the trailing named fields unset.
+#
+# confidence: the draft carries no per-row ok flag for exams, so each row's confidence was set
+# from how well the figures below `source` are actually corroborated, not just from whether the
+# draft's own prose flagged a price. Four rows are confidence: unverified, each with a note
+# naming exactly what is unconfirmed: Schneider DCCA and EPI CDCP flag their own price in the
+# draft's prose ("price from community sources" / "about USD 2,500 (unconfirmed)") and keep that
+# parenthetical wording in `price` rather than a cleaned-up bare number; CNet CDCDP's ~USD 5,000
+# is a third-party estimate not published on CNet's own page; NCP-AII has no official blueprint
+# PDF and its price/format/proctoring were never independently checked this session, only its
+# existence. The remaining rows were read on the vendor's own certification page (url) and
+# official blueprint PDF (guide), so confidence: verified — though exam-atd carries a note that
+# its figures come from a search snippet after the official subpage 503'd.
+#
+# related: the exam's `path` id, so the path page lists its exams. These ids (fabric, ops, rack,
+# facility, cooling) belong to Task B5, running in parallel, and may not exist yet — see B2.md.
+
+- id: exam-ncp-ain
+  name: "NCP-AIN, AI Networking Professional"
+  source: https://www.nvidia.com/en-us/learn/certification/ai-networking-professional/
+  checked: 2026-10-19
+  confidence: verified
+  related: [fabric]
+  vendor: NVIDIA
+  price: "USD 400"
+  format: "70 to 75 questions, 2 h"
+  proctoring: "online proctored"
+  validity: "valid 2 years"
+  path: fabric
+  verdict: core
+  guide: https://dam-cdn.nvd.orangelogic.com/AssetLink/32ljugfxg1hs1sd42371npw1xmcuo1yo.pdf
+  domains: "Domains: Spectrum networking 30 %, InfiniBand 30 %, troubleshooting tools 20 %, automation (NVUE, Ansible) 10 %, data-centre design 5 %, Kubernetes integration 5 %. Replaced the retired InfiniBand Professional exam."
+  worth: "The most frequently requested skill in neocloud job descriptions. Worth sitting once the rented-cluster session is done."
+
+- id: exam-ncp-aio
+  name: "NCP-AIO, AI Operations Professional"
+  source: https://www.nvidia.com/en-us/learn/certification/ai-operations-professional/
+  checked: 2026-10-19
+  confidence: verified
+  related: [ops]
+  vendor: NVIDIA
+  price: "USD 500"
+  format: "30 questions plus 3 hands-on labs, 2 h"
+  proctoring: "online proctored"
+  validity: "valid 2 years"
+  path: ops
+  verdict: core
+  guide: https://dam-cdn.nvd.orangelogic.com/AssetLink/ub08c12vdc5l53ksln5d4dlpt3346464.pdf
+  domains: "Domains: installation and deployment 31 %, administration 23 %, workload management 23 %, troubleshooting and optimisation 23 %. Covers Base Command Manager, Slurm, Kubernetes and Run:ai."
+  worth: "The only lab-graded exam in the set, and the nearest thing to proof of having run a GPU fleet. Do not sit it without hands-on BCM."
+
+- id: exam-nca-aiio
+  name: "NCA-AIIO, AI Infrastructure and Operations Associate"
+  source: https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-operations-associate
+  checked: 2026-10-19
+  confidence: verified
+  related: [ops]
+  vendor: NVIDIA
+  price: "USD 125"
+  format: "50 questions, 1 h"
+  proctoring: "online proctored"
+  validity: "valid 2 years"
+  path: ops
+  verdict: opt
+  guide: https://dam-cdn.nvd.orangelogic.com/AssetLink/x874j05hy3m3r2sor84kpvp70750m468.pdf
+  domains: "Domains: essential AI knowledge 38 %, AI infrastructure 40 %, AI operations 22 %."
+  worth: "Cheap and quick after the Fundamentals course. Good for people entering the field; a weak signal on a senior CV. Never let it displace a lab."
+
+- id: exam-ncp-aii
+  name: "NCP-AII, AI Infrastructure Professional"
+  source: https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-professional/
+  checked: 2026-10-19
+  confidence: verified
+  note: "Re-checked directly on NVIDIA's own certification page 2026-09-18: price (USD 400), format (70 to 75 questions, 2 h) and validity (2 years) all confirmed as recorded. Proctoring corrected to 'online proctored' (was wrongly 'knowledge only'), and an official study guide PDF was found and confirmed to resolve."
+  related: [ops]
+  vendor: NVIDIA
+  price: "USD 400"
+  format: "70 to 75 questions, 2 h"
+  proctoring: "online proctored"
+  validity: "valid 2 years"
+  path: ops
+  verdict: later
+  guide: https://dam-cdn.nvd.orangelogic.com/AssetLink/8gauup66xn2gv80pu4m166li0bhyytk4.pdf
+  domains: "Installing and validating DGX-class systems. Overlaps heavily with NCP-AIO. NVIDIA's partner programme counts NCP-AII holders, so it matters more inside a reseller."
+  worth: "Hold as the fallback if the lab-graded NCP-AIO does not go well."
+
+- id: exam-ncp-ari
+  name: "NCP-ARI, AI Rack and Interconnect Professional"
+  source: https://www.nvidia.com/en-us/learn/certification/ai-rack-and-interconnect-professional/
+  checked: 2026-10-19
+  confidence: verified
+  related: [rack]
+  vendor: NVIDIA
+  price: "USD 400"
+  format: "70 questions, 2 h"
+  proctoring: "online proctored"
+  validity: "valid 2 years"
+  path: rack
+  verdict: skip
+  domains: "Domains: high-density cabling 30 %, infrastructure basics 20 %, testing 12 %, pre-deployment planning 11 %, rack preparation 10 %, safety 10 %, cable support and weight 7 %."
+  worth: "It certifies the person who installs and tests cable. Right for deployment technicians. Architects and owners get the rack numbers faster from the free design guides."
+
+- id: exam-dcca
+  name: "Schneider DCCA, Data Center Certified Associate"
+  source: https://university.se.com/catalog/view/course/id/536/title/Schneider%20Electric%20University%20Data%20Center%20Certified%20Associate%20Exam
+  checked: 2026-09-18
+  confidence: unverified
+  note: "Re-checked 2026-09-18: se.com does not publish an exam price anywhere on its own domain. The catalogue URL now redirects to se.com/ww/en/about-us/university/, which advertises 300+ free vendor-neutral e-learning courses but states no exam fee. The USD 250 figure is attested only on community.se.com, a user forum, not on se.com itself."
+  related: [facility]
+  vendor: "Schneider Electric"
+  price: "course free; exam about USD 250 (price from community sources)"
+  format: "100 questions, open book"
+  proctoring: "pass mark 70 %"
+  validity: "open to anyone"
+  path: facility
+  verdict: skip
+  domains: "Vendor-neutral basics of power, cooling, racks, cabling, fire and physical security across 14 modules of about 10.5 hours."
+  worth: "Take the course, think twice about the exam. The knowledge is useful; the certificate carries little hiring weight with operators or neoclouds."
+
+- id: exam-atd
+  name: "Uptime Institute ATD, Accredited Tier Designer"
+  source: https://uptimeinstitute.com/education/accredited-tier-designer-atd
+  checked: 2026-10-19
+  confidence: verified
+  note: "Re-fetched 2026-09-18: uptimeinstitute.com/education/accredited-tier-designer-atd loaded without error and confirms price (US$4,985 per participant) and format (16 hours, live remote instructor-led, exam included at the end of the program) directly on Uptime's own page. The earlier HTTP 503 was not reproduced this session."
+  related: [facility]
+  vendor: "Uptime Institute"
+  price: "USD 4,985"
+  format: "16 h over 5 days, live remote, exam included"
+  path: facility
+  verdict: later
+  domains: "The Tier standard applied to design: redundancy, concurrent maintainability, fault tolerance. The design credential operators name most often."
+  worth: "Aimed at practising design engineers. Worth it when an employer pays or a project is funded."
+
+- id: exam-cdcdp
+  name: "CNet CDCDP, Certified Data Centre Design Professional"
+  source: https://cnet-training.com/programs/certified-data-centre-design-professional-cdcdp/
+  checked: 2026-09-20
+  confidence: verified
+  note: "CNet's CDCDP page publishes no price and directs prospective learners to request a follow-up; the former ~USD 5,000 figure was a third-party estimate, not a CNet number."
+  related: [facility]
+  vendor: "CNet Training, UK"
+  price: "price not published; contact CNet"
+  format: "5 days plus 20 h pre-study"
+  proctoring: "BTEC Level 5 award"
+  path: facility
+  verdict: later
+  domains: "Full design remit with a UK Pearson qualification. Two years of data-centre experience preferred."
+  worth: "The alternative to ATD where a UK-recognised award matters."
+
+- id: exam-cdcp
+  name: "EPI CDCP, Certified Data Centre Professional"
+  source: https://www.epi-usainc.com/training-on-demand/certified-data-center-professional-cdcp/
+  checked: 2026-09-20
+  confidence: verified
+  note: "EPI-USA's on-demand CDCP page lists USD 895 and says the exam is included. EPI also offers instructor-led formats, but does not publish their price on this page."
+  related: [facility]
+  vendor: EPI
+  price: "USD 895 on demand, exam included"
+  format: "2 days or on demand"
+  path: facility
+  verdict: skip
+  domains: "The common baseline for data-centre staff: terminology, power, cooling, safety."
+  worth: "Covers the ground of the free Schneider modules at many times the cost."
+
+- id: exam-dcai
+  name: "Cisco 300-640 DCAI, Data Center AI Infrastructure"
+  source: https://www.cisco.com/site/us/en/learn/training-certifications/exams/dcai.html
+  checked: 2026-09-18
+  confidence: verified
+  related: [fabric]
+  vendor: Cisco
+  price: "USD 300"
+  format: "90 minutes"
+  proctoring: "first sittings February 2026"
+  path: fabric
+  verdict: later
+  domains: "Design, implementation and troubleshooting of AI infrastructure across network, compute, storage and orchestration."
+  worth: "Useful where the employer runs Cisco. Neoclouds mostly ask for InfiniBand and Spectrum-X, which NCP-AIN covers."

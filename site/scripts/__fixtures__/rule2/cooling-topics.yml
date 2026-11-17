@@ -1,0 +1,10 @@
+# Rule 2: a figure with neither its own source/checked nor a row-level one to inherit.
+- id: unsourced-figure
+  name: Unsourced figure
+  title: Unsourced figure
+  body: A topic whose figure carries no source.
+  confidence: verified
+  figures:
+    - label: Practical air ceiling
+      value: 20 to 30 kW per rack
+      confidence: verified

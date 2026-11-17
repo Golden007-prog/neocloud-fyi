@@ -1,0 +1,44 @@
+---
+layout: layouts/index.njk
+eyebrow: Providers
+title: The provider index
+lede: Neoclouds, marketplaces, inference platforms and the landlords behind them. Filter by category or search; every row is in the page source even with JavaScript off.
+---
+<div class="cats">
+  {% for cat in site.categories %}
+  <div><b><a href="/providers/category/{{ cat.id }}/">{{ cat.label }}</a></b>{{ cat.description }}</div>
+  {% endfor %}
+</div>
+
+<div class="filters" role="group" aria-label="Filter providers">
+  <input id="psearch" type="search" placeholder="Search name, country, stack" aria-label="Search providers">
+  <span id="catbtns" style="display:contents">
+    <button type="button" data-catbtn="all" aria-pressed="true">All</button>
+    {% for cat in site.categories %}
+    <button type="button" data-catbtn="{{ cat.id }}" aria-pressed="false">{{ cat.label }}</button>
+    {% endfor %}
+  </span>
+</div>
+<p class="count" id="count" aria-live="polite">{{ site.providers.length }} of {{ site.providers.length }}</p>
+
+<p class="count" id="opmodel-share">Operating model still unknown for {{ opmodel.unknown }} of {{ opmodel.total }} providers ({{ opmodel.percent }}%). We state who owns, leases or resells the hardware only where a source says so.</p>
+
+<div class="idx-wrap">
+<table class="idx" id="providers">
+  <thead>
+    <tr><th scope="col">Name</th><th scope="col">HQ</th><th scope="col">Category</th><th scope="col">What it sells</th><th scope="col">European footprint</th></tr>
+  </thead>
+  <tbody>
+    {% for row in site.providers %}
+    <tr data-cat="{{ row.category }}" data-search="{{ (row.name ~ ' ' ~ row.hq ~ ' ' ~ row.stack ~ ' ' ~ row.sells ~ ' ' ~ row.europe) | lower }}">
+      <td><a href="/providers/{{ row.id }}/">{{ row.name }}</a></td>
+      <td>{{ row.hq }}</td>
+      <td>{% for cat in site.categories %}{% if cat.id == row.category %}<a href="/providers/category/{{ cat.id }}/">{{ cat.label }}</a>{% endif %}{% endfor %}</td>
+      <td>{{ row.sells }}</td>
+      <td>{{ row.europe }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+<script src="/assets/js/filter.js" defer></script>

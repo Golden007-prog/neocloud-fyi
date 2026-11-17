@@ -1,0 +1,142 @@
+# Operations: Slurm, Kubernetes and fleet management
+# Migrated from ../research/2026-09-18_draft-site/data-learning.js PATHS (id: ops), 2026-09-18.
+# Step-level "confidence: unverified" mirrors the draft's ok:0 flag; each carries a note
+# saying what was not independently confirmed. See docs/scrub/B5.md.
+
+id: ops
+name: "Operations: Slurm, Kubernetes and fleet management"
+source: https://neocloud.fyi/sources/
+checked: 2026-09-18
+confidence: verified
+note: site's own compiled learning path, synthesised from the sources cited in each step
+hours: 40 to 48 h
+cost: USD 550 with the exam
+summary: "Running the fleet: provisioning nodes, scheduling jobs, watching GPU health, upgrading and repairing. The NCP-AIO exam is the only one graded partly on a live system, and its heaviest domain (31 %) is installation and deployment with Base Command Manager."
+not_found: No study-hours figure from anyone who passed, and no administrator-level Slurm course from the European HPC centres (their courses teach job submission). One forum report warns against sitting the exam without practical BCM experience.
+related:
+  - fabric
+  - rack
+  - facility
+  - cooling
+related_reasons:
+  fabric: topology.conf is the scheduler's model of the physical fabric; nvidia-smi topo and NCCL tests are the shared diagnostics.
+  rack: "BCM's install and deploy domain is node bring-up: PXE, firmware baselines, images. The same layer as commissioning an NVL72 rack."
+  facility: DCGM reports power per GPU and can enforce power caps. Capping lets the electrical plant be sized nearer to average draw than to nameplate peak.
+  cooling: Job schedules drive heat load. Telemetry from DCGM is what a job-aware cooling plant would listen to.
+steps:
+  - title: AI Infrastructure and Operations Fundamentals
+    description: Seven-hour overview of GPUs, DGX systems, networking, storage, power and cooling. Shared base for the associate and professional exams.
+    url: https://www.nvidia.com/en-us/training/academy/course-detail/?id=course%3A15139841
+    cost: free to audit
+    hours: "7"
+    verdict: core
+    confidence: verified
+  - title: Slurm in containers with a GPU
+    description: giovtorres/slurm-docker-cluster starts a full Slurm cluster with Docker Compose in minutes; its GPU image registers the card as a GRES automatically. The quickest way to a working cluster on one machine.
+    url: https://github.com/giovtorres/slurm-docker-cluster
+    cost: free
+    hours: "3"
+    verdict: core
+    confidence: verified
+  - title: "Slurm administration: accounting, QoS, fairshare, topology"
+    description: SchedMD's own administrator guides, then practise with sacctmgr. University guides fill in worked fairshare examples.
+    url: https://slurm.schedmd.com/quickstart_admin.html
+    cost: free
+    hours: "5"
+    verdict: core
+    confidence: verified
+    more:
+      - label: QoS
+        url: https://slurm.schedmd.com/qos.html
+      - label: Topology
+        url: https://slurm.schedmd.com/topology.html
+      - label: Twente admin guide
+        url: https://hpc.wiki.utwente.nl/slurm:admin_guide
+      - label: "HPC from scratch: accounting"
+        url: https://theloginnode.com/posts/hpc-from-scratch-06/
+      - label: SLUG talks
+        url: https://slurm.schedmd.com/publications.html
+  - title: Pyxis and Enroot
+    description: NVIDIA's plugin that adds srun --container-image to Slurm. This is how GPU jobs run in containers on most neoclouds.
+    url: https://github.com/NVIDIA/pyxis
+    cost: free
+    hours: "2"
+    verdict: core
+    confidence: verified
+  - title: GPU Operator, DCGM exporter, Prometheus and Grafana
+    description: Install the GPU Operator on Kubernetes, export DCGM metrics, build a dashboard, then try time-slicing or MIG.
+    url: https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html
+    cost: free
+    hours: "5"
+    verdict: core
+    confidence: verified
+    more:
+      - label: DCGM
+        url: https://docs.nvidia.com/datacenter/dcgm/latest/index.html
+      - label: GPU sharing
+        url: https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/gpu-sharing.html
+  - title: Kueue quick start
+    description: Job queueing for Kubernetes, the closest thing to Slurm partitions in the Kubernetes world.
+    url: https://kueue.sigs.k8s.io/docs/getting-started/quick-start/
+    cost: free
+    hours: "1.5"
+    verdict: opt
+    confidence: verified
+  - title: Base Command Manager Administration course
+    description: Self-paced course on NVIDIA's cluster provisioning tool.
+    url: https://academy.nvidia.com/en/course/base-command-manager-administration/
+    cost: free
+    hours: "8"
+    verdict: core
+    confidence: verified
+    note: NVIDIA's Base Command Manager page currently says "Register for Free" for this self-paced course. An older NVIDIA DGX learning path still shows USD 50, so re-check before paying.
+  - title: Run Base Command Manager yourself
+    description: "NVIDIA licenses BCM free to organisations for their own use: up to 8 accelerators per node, any number of nodes, community support only. A head node and one or two compute VMs give real hands-on. Running it in VMs was not confirmed in the official docs."
+    url: https://docs.nvidia.com/base-command-manager/bcm-licensing-and-support/index.html
+    cost: free
+    hours: "4"
+    verdict: core
+    confidence: verified
+    note: "Opened 2026-10-06: the licensing page states the free licence covers up to eight accelerators per server with no limit on servers, is for an organisation's own use and not for resale, and comes without enterprise support. Running the head node and compute nodes as VMs was not confirmed in NVIDIA's documentation."
+  - title: "Run:ai: read, do not install"
+    description: No free or open self-hosted edition was found; only the scheduler core is open source as KAI Scheduler. Read the overview.
+    url: https://run-ai-docs.nvidia.com/self-hosted/getting-started/overview
+    cost: free
+    hours: "1"
+    verdict: opt
+    confidence: verified
+  - title: Slinky, Soperator, SUNK
+    description: Three ways of running Slurm on Kubernetes (SchedMD, Nebius, CoreWeave). Know what they are; building one is not needed for the exam.
+    url: https://slinky.schedmd.com/docs/
+    cost: free
+    hours: "1"
+    verdict: opt
+    confidence: verified
+  - title: NVIDIA DeepOps
+    description: Ansible bring-up for multi-node DGX clusters. Too heavy for a single-GPU lab.
+    url: https://github.com/NVIDIA/deepops
+    cost: free
+    verdict: skip
+    confidence: verified
+  - title: AI Operations Professional public training
+    description: Instructor-led preparation at six times the exam price.
+    url: https://www.nvidia.com/en-us/training/academy/course-detail/?id=course%3A15932192
+    cost: USD 3,000
+    hours: "24"
+    verdict: skip
+    confidence: verified
+    note: "Opened 2026-10-06: NVIDIA's DGX data center learning path lists the AI Operations Professional instructor-led workshop at USD 3,000 for 24 hours: https://www.nvidia.com/en-us/learn/learning-path/dgx-data-center/"
+  - title: "Exam: NCA-AIIO (associate)"
+    description: See the exam entry below.
+    url: https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-operations-associate
+    cost: USD 125
+    hours: "1"
+    verdict: opt
+    confidence: verified
+  - title: "Exam: NCP-AIO"
+    description: See the exam entry below.
+    url: https://www.nvidia.com/en-us/learn/certification/ai-operations-professional/
+    cost: USD 500
+    hours: "2"
+    verdict: core
+    confidence: verified

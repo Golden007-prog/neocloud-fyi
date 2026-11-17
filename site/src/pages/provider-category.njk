@@ -1,0 +1,29 @@
+---
+layout: layouts/entry.njk
+pagination:
+  data: site.categories
+  size: 1
+  alias: cat
+permalink: "/providers/category/{{ cat.id }}/"
+---
+<section>
+  <div class="idx-wrap">
+  <table class="idx">
+    <thead>
+      <tr><th scope="col">Name</th><th scope="col">HQ</th><th scope="col">What it sells</th><th scope="col">European footprint</th></tr>
+    </thead>
+    <tbody>
+      {% for p in site.providers %}
+      {% if p.category == cat.id %}
+      <tr>
+        <td><a href="/providers/{{ p.id }}/">{{ p.name }}</a></td>
+        <td>{{ p.hq }}</td>
+        <td>{{ p.sells }}</td>
+        <td>{{ p.europe }}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>

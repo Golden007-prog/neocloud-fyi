@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neocloud.fyi/schemas/categories.schema.json",
+  "title": "categories",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "name",
+      "source",
+      "checked",
+      "confidence",
+      "label",
+      "description"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "source": {
+        "type": "string",
+        "format": "uri",
+        "pattern": "^https?://"
+      },
+      "checked": {
+        "type": "string",
+        "format": "date"
+      },
+      "confidence": {
+        "enum": [
+          "verified",
+          "unverified"
+        ]
+      },
+      "note": {
+        "type": "string"
+      },
+      "related": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "related_reasons": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "figures": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "label",
+            "value",
+            "source",
+            "confidence"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string",
+              "pattern": "^https?://"
+            },
+            "checked": {
+              "type": "string",
+              "format": "date"
+            },
+            "confidence": {
+              "enum": [
+                "verified",
+                "unverified"
+              ]
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "label": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

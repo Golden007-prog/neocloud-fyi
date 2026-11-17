@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% if title %}{{ title }} — {% endif %}{{ meta.title }}</title>
+<meta name="description" content="{{ description or meta.description }}">
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+</head>
+<body>
+<a class="skiplink" href="#main">Skip to content</a>
+<nav class="top" aria-label="Site sections">
+  <ul>{% for n in meta.nav %}<li><a href="{{ n.url }}">{{ n.label }}</a></li>{% endfor %}</ul>
+</nav>
+<main class="wrap" id="main">
+{{ content | safe }}
+</main>
+<footer class="wrap">
+  <div class="colophon">
+    <p>{{ meta.byline }} — <a href="{{ meta.linkedin }}">LinkedIn</a>.</p>
+    <p>Content and data {{ meta.content_licence }}. Build code {{ meta.code_licence }}.
+       Figures are as published by the companies: claims, not audits.</p>
+    <p><a href="/corrections/">Send a correction</a> · <a href="/sources/">How this is compiled</a> · <a href="/privacy/">Privacy</a></p>
+  </div>
+</footer>
+</body>
+</html>

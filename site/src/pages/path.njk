@@ -1,0 +1,41 @@
+---js
+{
+  // JS front matter (not YAML) so eleventyComputed can return the real `related` array
+  // and the plain `note` string, instead of a Nunjucks-templated (and double-escaped)
+  // string. See docs/plan.md Stage C shared rules and site/src/pages/exam.njk.
+  pagination: { data: "site.paths", size: 1, alias: "row" },
+  layout: "layouts/entry.njk",
+  permalink: "/paths/{{ row.id }}/index.html",
+  eleventyComputed: {
+    title: (data) => data.row.name,
+    eyebrow: () => "Learning path",
+    lede: (data) => data.row.summary,
+    source: (data) => data.row.source,
+    checked: (data) => data.row.checked,
+    confidence: (data) => data.row.confidence,
+    note: (data) => data.row.note,
+    related: (data) => data.links[data.row.id] || [],
+  },
+}
+---
+<p class="path-head"><span class="meta">{{ row.hours }} &middot; {{ row.cost }}</span></p>
+
+<ol class="steps">
+  {% for step in row.steps %}
+  {% set isExam = step.title.startsWith("Exam:") %}
+  <li class="{% if step.verdict == 'skip' %}s-skip {% endif %}{% if isExam %}exam{% endif %}">
+    <span>{% set verdict = step.verdict %}{% include "partials/verdict-chip.njk" %}</span>
+    <span class="st">{% if step.url %}<a href="{{ step.url }}" rel="noopener">{{ step.title }}</a>{% else %}{{ step.title }}{% endif %}</span>
+    <span class="sd">{{ step.description }}{% if step.more and step.more.length %}<br>Also: {% for m in step.more %}<a href="{{ m.url }}" rel="noopener">{{ m.label }}</a>{% if not loop.last %} &middot; {% endif %}{% endfor %}{% endif %}</span>
+    <span class="meta">{% if step.cost %}<span>{{ step.cost }}</span>{% endif %}{% if step.hours %}<span>{{ step.hours }} h</span>{% endif %}{% if step.confidence == "unverified" %}<span class="unv">unverified</span>{% endif %}</span>
+    {% if step.note %}<span class="sd lede">{{ step.note }}</span>{% endif %}
+  </li>
+  {% endfor %}
+</ol>
+
+{% if row.not_found %}
+<section>
+  <h2>What was not found</h2>
+  <p class="nf">{{ row.not_found }}</p>
+</section>
+{% endif %}

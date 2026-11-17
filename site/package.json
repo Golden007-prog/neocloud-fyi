@@ -1,0 +1,27 @@
+{
+  "name": "neocloud-fyi",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "stale": "node scripts/stale.mjs",
+    "test": "node --test \"scripts/**/*.test.mjs\"",
+    "build": "npm run validate && eleventy",
+    "serve": "eleventy --serve",
+    "linkcheck": "linkinator _site --recurse --skip '^https?://(?!localhost)' --silent",
+    "htmlcheck": "html-validate '_site/**/*.html'",
+    "check": "npm run build && npm run htmlcheck && npm run linkcheck"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@lhci/cli": "^0.14.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "html-validate": "^8.24.2",
+    "linkinator": "^6.1.2",
+    "yaml": "^2.5.1"
+  }
+}

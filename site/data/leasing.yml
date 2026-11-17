@@ -1,0 +1,74 @@
+# Leasing requirements. Migrated from research/2026-09-18_draft-site/data-neoclouds.js
+# (window.LANDLORD, lines ~93-103) per docs/plan.md Task B6. Draft row shape:
+# [requirement, detail, source] -> {id, name, requirement, detail, source}.
+#
+# confidence: the draft carries no per-row ok flag for LANDLORD. `verified` below means the
+# source was actually opened this session and checked against the row's own claim — not that a
+# URL merely existed in the draft. A first pass marked every row with a draft-supplied URL
+# `verified` on the weaker basis; a review of this package found that method had let a wrong
+# citation through elsewhere (events.yml) and required every row here to be reopened too. Where
+# a page could not be opened (bot-challenge) it is `unverified` with a note, not treated as
+# confirmed. See docs/scrub/B6.md.
+#
+# name: duplicates `requirement` (the schema requires both); no field is invented beyond that.
+
+- id: lease-rack-density-rising
+  name: Rack density is rising unevenly
+  requirement: Rack density is rising unevenly
+  detail: "Average density went from about 16 to 27 kW per rack in a year, while neocloud requirements already run 50 to 100 kW and designs target 200 to 300 kW."
+  source: https://datacenterhawk.com/resources/fundamentals/colocation-data-center-pricing-a-2026-beginner-s-guide
+  checked: 2026-10-07
+  confidence: unverified
+  note: "Sources disagree, so this stays unverified. The cited datacenterHawk guide, opened in a browser 2026-10-07, mentions designing for 50 to 100+ kW per rack but not the '16 to 27 kW in a year' or '200 to 300 kW' figures. Uptime Institute's 2025 global survey reports an average typical rack density of about 9 kW (7.5 kW without the few very dense sites) and says most operators' densest racks are still under 30 kW. The two are measuring different things: new AI builds against the whole installed base."
+
+- id: lease-liquid-cooling-assumed
+  name: Liquid cooling is assumed
+  requirement: Liquid cooling is assumed
+  detail: "Direct-to-chip handles 100 to 175 kW per rack; air-cooled halls built for 5 to 10 kW are ruled out for Blackwell-class racks."
+  source: https://blog.se.com/datacenter/2026/07/28/data-center-power-density-planning-liquid-cooled-ai-data-centers-around-grid-and-power-constraints/
+  checked: 2026-09-18
+  confidence: unverified
+  note: "Opened in a browser 2026-10-07 (the earlier 403 was a bot challenge). The Schneider article says 50 to 70 kW racks are now common in AI deployments and that the newest systems reach up to 246 kW per rack (Vera Rubin). It does not state '100 to 175 kW' for direct-to-chip, and it does not rule out air-cooled halls built for 5 to 10 kW for Blackwell-class racks. The row's figures are not on the cited page, so it stays unverified."
+
+- id: lease-fifteen-year-leases
+  name: Fifteen-year leases are the norm
+  requirement: Fifteen-year leases are the norm
+  detail: Often with five-year renewal options, across every large 2026 deal checked.
+  source: https://ir.applieddigital.com/news-events/press-releases/detail/128/applied-digital-finalizes-additional-150mw-lease-with
+  checked: 2026-09-18
+  confidence: verified
+
+- id: lease-power-priced-in-parts
+  name: Contracts price power in parts
+  requirement: Contracts price power in parts
+  detail: Committed power, overage, reserved capacity, escalation, cooling charges and expansion rights are separate lines.
+  source: https://encoradvisors.com/data-center-colocation-pricing/
+  checked: 2026-09-18
+  confidence: verified
+
+- id: lease-time-to-power
+  name: Time to power is the constraint
+  requirement: Time to power is the constraint
+  detail: Capacity is pre-leased more than a year before delivery.
+  source: https://datacenterhawk.com/resources/fundamentals/colocation-data-center-pricing-a-2026-beginner-s-guide
+  checked: 2026-10-07
+  confidence: unverified
+  note: "Partly supported. JLL's 2026 global data center outlook says the average wait for a grid connection in primary markets exceeds four years, which supports the headline. The detail line about pre-leasing more than a year ahead was not found on the cited datacenterHawk page when it was opened in a browser on 2026-10-07."
+
+- id: lease-gross-vs-critical-it-load
+  name: Gross power is not critical IT load
+  requirement: Gross power is not critical IT load
+  detail: "Galaxy's first phase is about 200 MW gross for 133 MW of IT; Cipher's site is 244 for 168. Tenants pay for the second number."
+  source: https://www.prnewswire.com/news-releases/galaxy-completes-phase-i-of-its-helios-data-center-campus-delivering-133-megawatts-of-critical-it-load-to-coreweave-302818664.html
+  checked: 2026-10-19
+  confidence: verified
+  related: [galaxy, cipher-mining]
+
+- id: lease-hyperscaler-threshold
+  name: Hyperscaler deals start around 100 MW
+  requirement: Hyperscaler deals start around 100 MW
+  detail: Trade reporting on the 2026 mega-colo deals puts the hyperscaler anchor size at roughly 100 MW and up.
+  source: https://www.datacenters.com/news/inside-the-mega-colo-surge-why-hyperscalers-are-signing-100mw-deals
+  checked: 2026-09-18
+  confidence: unverified
+  note: "Opened in a browser 2026-10-07. The datacenters.com article states that hyperscalers such as Amazon, Google and Microsoft are locking in colocation leases exceeding 100MW, against 5MW once being a major win. That supports the roughly 100 MW figure. It is a marketplace blog, not a primary source, and the page shows no 2026 deal, so the row's wording '2026 mega-colo deals' is not supported by it and the row stays unverified."

@@ -1,0 +1,35 @@
+---
+layout: layouts/index.njk
+eyebrow: Exams
+title: The exam index
+lede: Vendor certifications for AI-infrastructure roles, each with a verdict — core, optional, later or skip. Filter below; every row is in the page source even with JavaScript off.
+---
+<div class="filters" data-verdict-table="exams" role="group" aria-label="Filter exams by verdict">
+  <button type="button" data-verdict="all" aria-pressed="true">All</button>
+  <button type="button" data-verdict="core" aria-pressed="false">Core</button>
+  <button type="button" data-verdict="opt" aria-pressed="false">Optional</button>
+  <button type="button" data-verdict="later" aria-pressed="false">Later</button>
+  <button type="button" data-verdict="skip" aria-pressed="false">Skip</button>
+</div>
+
+<div class="idx-wrap">
+<table class="idx" data-verdict-table="exams">
+  <thead>
+    <tr><th scope="col">Exam</th><th scope="col">Vendor</th><th scope="col">Price</th><th scope="col">Format</th><th scope="col">Verdict</th><th scope="col">Path</th></tr>
+  </thead>
+  <tbody>
+    {% for row in site.exams %}
+    <tr data-verdict="{{ row.verdict }}">
+      <td><a href="/exams/{{ row.id }}/">{{ row.name }}</a></td>
+      <td>{{ row.vendor }}</td>
+      <td>{{ row.price }}</td>
+      <td>{{ row.format }}</td>
+      <td>{% set verdict = row.verdict %}{% include "partials/verdict-chip.njk" %}</td>
+      <td>{% for p in site.paths %}{% if p.id == row.path %}<a href="/paths/{{ p.id }}/">{{ p.name.split(':')[0] }}</a>{% endif %}{% endfor %}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<script src="/assets/js/verdict.js" defer></script>

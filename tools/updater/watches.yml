@@ -1,0 +1,29 @@
+# What the updater looks at. Design: docs/updater-design.md section a.
+# Each watch names a row, a field, and a URL the row already cites. Tier A may rewrite the
+# field when the extraction is deterministic; Tier B only confirms or records a disagreement.
+# Add a Tier A watch only with an extractor fixture and test.
+watches:
+  - row: vendor-courses/course-nvidia-bluefield
+    field: cost
+    tier: A
+    extractor: nvidia-learning-path
+    anchor: BlueField DPU Administration
+
+  # NVIDIA certification pages: "Price: $N" appears exactly once in the exam-details block.
+  - { row: exams/exam-ncp-ain,  field: price, tier: A, extractor: nvidia-exam-price, anchor: NCP-AIN }
+  - { row: exams/exam-ncp-aio,  field: price, tier: A, extractor: nvidia-exam-price, anchor: NCP-AIO }
+  - { row: exams/exam-nca-aiio, field: price, tier: A, extractor: nvidia-exam-price, anchor: NCA-AIIO }
+  - { row: exams/exam-ncp-aii,  field: price, tier: A, extractor: nvidia-exam-price, anchor: NCP-AII }
+  - { row: exams/exam-ncp-ari,  field: price, tier: A, extractor: nvidia-exam-price, anchor: NCP-ARI }
+
+  # Tier B: the figure must still sit next to its anchor; a change is noted, never written.
+  - { row: exams/exam-atd, field: price, tier: B, anchor: Costs & Credits, expect: ["US$4,985"] }
+  - { row: vendor-courses/course-vast-vcp-ad1, field: cost, tier: B, anchor: "VCP-AD1", expect: ["Cost: $300"] }
+  - { row: vendor-courses/course-arista-ace, field: cost, tier: B, anchor: "BUY THIS TRACK", expect: ["$495"], window: 200 }
+
+  # Events and leasing: the reported fact must still sit beside the headline subject.
+  - { row: events/ev-core-scientific-coreweave-vote, field: what, tier: B, anchor: Core Scientific, expect: ["$9 billion"] }
+  - { row: events/ev-cerebras-ipo-pricing, field: what, tier: B, anchor: Cerebras, expect: ["initial public offering", "Nasdaq"], window: 600 }
+  - { row: events/ev-coreweave-nebius-nasdaq-100, field: what, tier: B, anchor: Nasdaq-100, expect: ["CoreWeave", "Nebius"], window: 600 }
+  - { row: events/ev-microsoft-nscale-norway, field: what, tier: B, anchor: Norway, expect: ["Microsoft", "Nscale"], window: 800 }
+  - { row: leasing/lease-gross-vs-critical-it-load, field: detail, tier: B, anchor: approximately 200 megawatts, expect: ["gross power", "133 MW of critical IT load"], window: 200 }

@@ -1,0 +1,246 @@
+- id: cool-why-air-stops
+  name: Why air stops
+  title: Why air stops
+  body: "Moving heat with air needs airflow and fan power that become impractical above roughly 20 to 30 kW per rack. NVL72-class racks cool GPUs and CPUs with liquid, but power supplies, NICs and some switches still reject heat to air, so every liquid-cooled hall keeps some air handling."
+  source: https://pantheon.run/learn/nvidia-gb200-nvl72-power-and-cooling
+  checked: 2026-09-18
+  confidence: verified
+  related: [rack]
+  figures:
+    - label: Practical air ceiling
+      value: 20 to 30 kW per rack
+      source: https://www.vertiv.com/en-ca/insights/articles/educational-articles/data-center-containment-strategies-for-high-density-environments/
+      checked: 2026-10-06
+      confidence: verified
+      note: "Opened 2026-10-06: Vertiv's containment article gives 20-30 kW per rack for air-cooled rows. Re-sourced from pantheon.run, whose page carries no such figure. This is a vendor's rule of thumb, not a standard."
+    - label: GB200 NVL72 rack
+      value: "NVIDIA reference rack about 120 kW; HPE's OEM configuration rated 132 kW nominal, about 192 kW peak design power"
+      source: https://pantheon.run/learn/nvidia-gb200-nvl72-power-and-cooling
+      checked: 2026-09-18
+      confidence: verified
+    - label: GB300 NVL72 rack
+      value: 132 to 155 kW by configuration
+      source: https://www.supercomputing.news/emerging/nvidia-45c-warm-water-cooling-mgx-data-center
+      checked: 2026-09-18
+      confidence: verified
+    - label: Liquid to air split
+      value: about 115 kW liquid, 17 kW air (87 / 13 %)
+      source: https://pantheon.run/learn/nvidia-gb200-nvl72-power-and-cooling
+      checked: 2026-10-07
+      confidence: unverified
+      note: "Unsourced. The pantheon.run page cited here carries no liquid-to-air split. HPE's product page for the GB200 NVL72 was opened in a browser on 2026-10-07: it describes a mix of air and liquid cooling but gives no kW or percentage figures. The figure may be in HPE's QuickSpecs, which were not read."
+
+- id: cool-direct-to-chip-loops
+  name: Direct-to-chip cooling and the two loops
+  title: Direct-to-chip cooling and the two loops
+  body: "Cold plates bolted to each chip carry coolant through micro-channels. Manifolds feed the plates; dripless quick disconnects let a tray be pulled without draining the rack. The technology cooling system (TCS) is the clean loop inside the IT gear. The facility water system (FWS) is the building loop. A CDU sits between them so building water never touches the chips."
+  source: https://www.vertiv.com/en-us/insights/articles/educational-articles/understanding-coolant-distribution-units-cdus-for-liquid-cooling/
+  checked: 2026-09-18
+  confidence: verified
+  related: [rack, facility]
+  figures:
+    - label: Loops
+      value: TCS inside the rack, FWS in the building, CDU between
+      source: https://www.vertiv.com/en-us/insights/articles/educational-articles/understanding-coolant-distribution-units-cdus-for-liquid-cooling/
+      checked: 2026-09-18
+      confidence: verified
+
+- id: cool-cdus
+  name: Coolant distribution units
+  title: Coolant distribution units
+  body: "A CDU is pumps plus a heat exchanger. In-rack units serve one cabinet, in-row units a few, facility-scale units a hall. Liquid-to-liquid needs building pipework and performs best; liquid-to-air is self-contained and weaker. Capacity depends on flow and on approach temperature: the closer the two loops must run, the less one unit can carry."
+  source: https://www.vertiv.com/en-us/products-catalog/thermal-management/high-density-solutions/vertiv-coolchip-cdu/
+  checked: 2026-09-18
+  confidence: verified
+  note: the Vertiv CoolChip CDU catalogue page was opened on 2026-09-18 and rates each model at a stated approach temperature, which is what the body describes
+  related: [facility]
+  figures:
+    - label: Vertiv CoolChip CDU 1350
+      value: "1,350 kW at 4 deg C approach; the CoolChip range runs 70 kW to 2,300 kW"
+      source: https://www.vertiv.com/en-us/products-catalog/thermal-management/high-density-solutions/vertiv-coolchip-cdu/
+      checked: 2026-09-18
+      confidence: verified
+      note: read from the Vertiv product catalogue page on 2026-09-18; a manufacturer's own published rating
+    - label: OCP Deschutes
+      value: "2 MW, 3 deg C approach, 80 psi, 0.2 micron side-stream filter"
+      source: https://www.opencompute.org/products/736/vertiv-coolchip-cdu-project-deschutes-5
+      checked: 2026-10-06
+      confidence: verified
+      note: "Opened 2026-10-06: the OCP product page for the Vertiv CoolChip CDU (Project Deschutes 5) lists 2 MW at 3 deg C ATD, 80 psi available pressure and 0.2 micron side-stream filtration (primary filtration is 25 or 44 micron)."
+    - label: Deschutes solution provider (OCP listing)
+      value: Vertiv
+      source: https://www.opencompute.org/products/736/vertiv-coolchip-cdu-project-deschutes-5
+      checked: 2026-09-20
+      confidence: verified
+      note: OCP's current product listing names Vertiv as its only solution provider; this is not a complete list of all Project Deschutes prototype builders
+
+- id: cool-coolant-water-quality
+  name: Coolant and water quality
+  title: Coolant and water quality
+  body: "The default coolant is PG25: 25 % propylene glycol in water with an inhibitor package. Glycol lowers the freezing point and holds back biological growth; inhibitors keep pH in range and protect brazed joints. Filtration is sized to the smallest passage in the loop, which is the cold-plate micro-channel. New loops are flushed and pressure-tested before any IT load, then sampled yearly."
+  source: https://www.opencompute.org/documents/guidelines-for-using-propylene-glycol-based-heat-transfer-fluids-in-single-phase-cold-plate-based-liquid-cooled-racks-final-pdf
+  checked: 2026-09-18
+  confidence: unverified
+  note: "Attempted direct fetch this session (WebFetch and curl with a browser user agent); OCP's Cloudflare bot challenge returned HTTP 403 both times. Not independently confirmed."
+  related: [ops]
+  figures:
+    - label: PG25 freeze point
+      value: about -10 deg C
+      source: https://blog.se.com/datacenter/2026/08/14/what-coolant-for-data-center-liquid-cooling-pg25-dielectric-fluids-ashrae-recommendations/
+      checked: 2026-09-18
+      confidence: verified
+      note: "Direct fetch (curl with a browser user agent; WebFetch returned 403 for this host) confirms: 'PG25 offers freeze protection down to about -10C (14F).' Exact match to the value."
+    - label: Loop pH
+      value: 8.0 to 10.5
+      source: https://www.opencompute.org/documents/guidelines-for-using-propylene-glycol-based-heat-transfer-fluids-in-single-phase-cold-plate-based-liquid-cooled-racks-final-pdf
+      checked: 2026-09-20
+      confidence: verified
+      note: "OCP's guideline lists fluid pH as 8.0 to 10.5, while noting that the value depends on corrosion-inhibitor formulation and can be lower with organic acid technology."
+    - label: Filtration
+      value: "side-stream filter finer than 5 micron, plus a coarser inline filter"
+      source: https://www.opencompute.org/documents/guidelines-for-using-propylene-glycol-based-heat-transfer-fluids-in-single-phase-cold-plate-based-liquid-cooled-racks-final-pdf
+      checked: 2026-10-07
+      confidence: verified
+      note: "Corrected 2026-10-07. This row used to say 'match the cold-plate channel, not a generic 5 micron'. The OCP guideline it cites says the opposite: section 4.4 recommends side-stream filtration below 5 micron, treating 10 percent of the flow, to keep particles out of the cold-plate microchannels, and allows a coarser inline filter (for example 50 micron) as an addition, not a substitute. Read from the PDF on 2026-10-06."
+
+- id: cool-water-classes-nvidia-45c
+  name: Water classes and NVIDIA's 45 deg C
+  title: Water classes and NVIDIA's 45 deg C
+  body: "ASHRAE classes facility water by maximum supply temperature: W17, W27, W32, W40, W45 and W+ above 45. NVIDIA's MGX specification for GB200, GB300 and Vera Rubin states 45 deg C inlet, a W45 design, with water returning near 55 deg C. One third-party analysis suggests some Vera Rubin configurations may return nearer 65 deg C."
+  source: https://www.supercomputing.news/emerging/nvidia-45c-warm-water-cooling-mgx-data-center
+  checked: 2026-09-18
+  confidence: verified
+  related: [rack]
+  figures:
+    - label: NVIDIA inlet
+      value: 45 deg C (113 deg F)
+      source: https://blogs.nvidia.com/blog/liquid-cooling-ai-factories/
+      checked: 2026-09-18
+      confidence: verified
+      note: "Upgraded from a press write-up to NVIDIA's own blog post ('Hotter Than a Hot Tub: The 45C Breakthrough to Cool AI's Biggest Machines'), which directly states MGX racks run 'up to 45 degrees Celsius, or 113 degrees Fahrenheit' inlet."
+    - label: Return
+      value: about 55 deg C per NVIDIA
+      source: https://blogs.nvidia.com/blog/liquid-cooling-ai-factories/
+      checked: 2026-09-18
+      confidence: verified
+      note: "NVIDIA's own blog states the coolant entering a fully liquid-cooled chip at 45 deg C exits at roughly 55 deg C (facility-water framing: 41 deg C in, ~55 deg C coolant out)."
+    - label: Third-party return estimate
+      value: up to about 65 deg C
+      source: https://www.supercomputing.news/emerging/nvidia-45c-warm-water-cooling-mgx-data-center
+      checked: 2026-09-18
+      confidence: unverified
+      note: "Confirmed by direct fetch: the supercomputing.news article states SemiAnalysis has modeled return temperatures approaching 65C in some Vera Rubin configurations; NVIDIA's published figure is the lower one. Article accurately reports the estimate, but it is still a press relay of SemiAnalysis, not SemiAnalysis's own page — stays unverified pending a direct SemiAnalysis source."
+
+- id: cool-heat-rejection
+  name: Heat rejection
+  title: Heat rejection
+  body: "A dry cooler can only bring water down to a few degrees above outdoor air. Adiabatic pads and cooling towers use water to get below that limit."
+  source: https://guntner.com/en-us/our-impact/blog/planning-for-adiabatic-cooling-in-data-centers
+  checked: 2026-09-18
+  confidence: unverified
+  note: the topic source was opened on 2026-09-18; it discusses adiabatic cooling for data centres but carries no noise figure and no tower-versus-dry-cooler power comparison, so the two figures that had been resting on it were removed
+  related: [facility]
+  figures:
+    - label: Hybrid adiabatic water use
+      value: up to 90 % less water than a traditional water-cooled system
+      source: https://guntner.com/en-us/our-impact/blog/planning-for-adiabatic-cooling-in-data-centers
+      checked: 2026-09-18
+      confidence: verified
+      note: read on the page on 2026-09-18; a manufacturer's own claim about its equipment, not an independent measurement
+
+- id: cool-water-use
+  name: Water use
+  title: Water use
+  body: "Water usage effectiveness (WUE) is water consumed per unit of IT energy, in litres per kWh or cubic metres per MWh. A closed loop with dry rejection drives it towards zero. In the EU, the Energy Efficiency Directive and corporate sustainability reporting ask operators to disclose PUE, WUE and heat reuse."
+  source: https://en.wikipedia.org/wiki/Water_usage_effectiveness
+  checked: 2026-09-18
+  confidence: verified
+  note: the topic source was opened on 2026-09-18 and confirms the definition, the units and that WUE can be zero where no water is used for cooling; it does not cover the EU reporting instruments named in the last sentence
+  related: [facility]
+
+- id: cool-rear-door-heat-exchangers
+  name: Rear-door heat exchangers and in-row coolers
+  title: Rear-door heat exchangers and in-row coolers
+  body: "A rear-door heat exchanger is a water coil on the back of a rack: server fans push exhaust through it and the air leaves near room temperature. It suits the air-cooled remainder of an AI hall, such as network and storage racks. In-row coolers are coarser and suit lower densities."
+  source: https://www.supermicro.com/en/glossary/rdhx
+  checked: 2026-09-18
+  confidence: unverified
+  note: "Directly opened supermicro.com. It confirms the core mechanism (RDHx is a liquid-to-air heat exchanger on the rear of a rack that absorbs heat from server exhaust before it enters the room) but frames density differently from the body: Supermicro describes RDHx as suited to 'extremely high-density racks' rather than as cooling for the air-cooled remainder of a hall, and does not describe in-row coolers as 'coarser' or lower-density. Body wording flagged for human review against this source; confidence left unverified in the meantime."
+  related: [rack]
+
+- id: cool-immersion
+  name: Immersion
+  title: Immersion
+  body: "Single-phase immersion, servers in a bath of dielectric fluid, is a working niche. Two-phase immersion has stalled: its fluids are PFAS, and 3M left that business at the end of 2025. NVIDIA's reference designs are direct-to-chip, so immersion means leaving the vendor's design for no thermal need."
+  source: https://blog.se.com/datacenter/2026/05/22/pfas-phase-out-liquid-cooling-us-data-center-operators-must-do/
+  checked: 2026-09-18
+  confidence: verified
+  note: "Directly opened via curl (WebFetch returned 403 for this host; curl with a browser user agent succeeded). Confirms 3M phased out PFAS chemicals including Novec, used in two-phase immersion and two-phase direct-to-chip cooling, and states that as of 2026, single-phase DTC liquid cooling has become the dominant liquid cooling method, with a 55% market share — substantiating the body's central claim."
+  figures:
+    - label: 3M PFAS exit
+      value: announced December 2022, effective end of 2025
+      source: https://news.3m.com/2022-12-20-3M-to-Exit-PFAS-Manufacturing-by-the-End-of-2025
+      checked: 2026-09-18
+      confidence: verified
+      note: "3M's own press release, opened directly 2026-09-18, states 3M will exit all PFAS manufacturing by the end of 2025 and discontinue fluoropolymers, fluorinated fluids and PFAS-based additives — directly confirms both dates in the value. Replaces the earlier secondary (Schneider Electric blog) citation with 3M's own primary source."
+
+- id: cool-heat-reuse
+  name: Heat reuse
+  title: Heat reuse
+  body: "Return water at 45 to 65 deg C can pre-heat buildings, pools or processes directly. District heating usually wants 60 to 90 deg C, which takes a heat pump. Germany's Energy Efficiency Act is the sharpest rule in Europe: new data centres from July 2026 must reuse a rising share of their energy."
+  source: https://mgrid.org/2025/11/07/germany-enefg-pue-1-2-waste-heat-data-centers-july-2026/
+  checked: 2026-09-18
+  confidence: verified
+  note: the topic source was opened on 2026-09-18 and carries the German reuse targets and the heat-pump temperature gap; it is a summary of the statute, not the statute text
+  related: [facility]
+  figures:
+    - label: "Germany, energy reuse factor"
+      value: "10 % from July 2026, 15 % from 2027, 20 % from 2028"
+      source: https://mgrid.org/2025/11/07/germany-enefg-pue-1-2-waste-heat-data-centers-july-2026/
+      checked: 2026-09-18
+      confidence: verified
+      note: read on the page on 2026-09-18; a summary of the German Energy Efficiency Act, not the statute text
+
+- id: cool-efficiency-metrics
+  name: Efficiency metrics
+  title: Efficiency metrics
+  body: "PUE is total facility energy over IT energy. Partial PUE applies the ratio to one subsystem. WUE is water per IT energy. ERF is the share of energy reused elsewhere. TUE also counts the fans and pumps inside the IT equipment that PUE hides."
+  source: https://baltimoreaircoil.com/articles/energy-water-efficiency-data-center-metrics
+  checked: 2026-09-18
+  confidence: verified
+  note: the topic source was opened on 2026-09-18 and defines PUE, pPUE, WUE and TUE; it does not define ERF, which is instead defined on the heat-reuse topic's source
+  related: [facility]
+  figures:
+    - label: Immersion deployments
+      value: PUE below 1.05 reported
+      source: https://baltimoreaircoil.com/articles/energy-water-efficiency-data-center-metrics
+      checked: 2026-09-18
+      confidence: verified
+      note: read on the page on 2026-09-18, where it is stated of immersion cooling specifically
+
+- id: cool-failure-modes-commissioning
+  name: Failure modes and commissioning
+  title: Failure modes and commissioning
+  body: "A leak shows first as pressure loss or humidity, before temperature moves. Loss of flow removes cooling capacity faster and more abruptly. Commissioning uses liquid-cooled load banks to prove the loop before real IT load arrives."
+  source: https://avtronpower.com/wp-content/uploads/2026/02/Simplifying-Data-Ctr-readiness-LCLB.pdf
+  checked: 2026-09-18
+  confidence: verified
+  note: the topic source was opened on 2026-09-18 and describes liquid-cooled load banks validating CDUs and loops before IT hardware arrives
+  related: [ops, facility]
+  figures:
+    - label: Leak signals
+      value: humidity, pressure and flow move first; temperature barely responds at once, because of thermal inertia in the hardware
+      source: https://arxiv.org/abs/2512.21801
+      checked: 2026-09-18
+      confidence: verified
+      note: read in the paper's abstract on 2026-09-18; a research prototype, not a shipped product
+
+- id: cool-structure-layout
+  name: Structure and layout
+  title: Structure and layout
+  body: "Pipes run under the floor, where they compete with power and network, or overhead, where they add load to the structure. Large runs are prefabricated. AI racks weigh far more than legacy IT. Cable reach constrains where racks stand regardless of cooling."
+  source: https://www.csemag.com/how-to-design-piping-systems-for-data-centers-that-require-liquid-cooling/
+  checked: 2026-09-18
+  confidence: unverified
+  note: the topic source was opened on 2026-09-18; it covers piping design, CDUs and corrosion but carries no rack-weight or floor-loading figure, so the figure that had been resting on it was removed, and it does not cover the cabling sentence
+  related: [fabric, facility]

@@ -1,0 +1,633 @@
+- id: coreweave
+  name: CoreWeave
+  hq: US
+  category: cat-neo
+  sells: Bare-metal GPU clusters, managed Kubernetes, inference
+  stack: SUNK (Slurm on Kubernetes), own
+  europe: "Barcelona and Bilbao sites leased from Merlin Edged; Crawley and London"
+  scale: Listed on Nasdaq (CRWV). About USD 104 bn revenue backlog at 30 June 2026. Its bid for Core Scientific was voted down in October 2025
+  source: https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx
+  checked: 2026-10-06
+  confidence: unverified
+  note: "Opened 2026-10-06: CoreWeave's Q2 2026 results give Nasdaq: CRWV and about USD 104 bn of revenue backlog at 30 June 2026; its Form 8-K says Core Scientific stockholders did not approve the merger on 30 October 2025 (https://www.sec.gov/Archives/edgar/data/1769628/000095010325014006/dp236631_8k.htm). The scale line is confirmed. The row stays unverified because the European site names were not re-checked against either company's own pages, and no megawatt figure is carried for those tenancies."
+  operating_model: leases
+  operating_model_source: https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm
+  operating_model_checked: 2026-10-24
+  related:
+    - cat-neo
+- id: nebius
+  name: Nebius
+  hq: Netherlands
+  category: cat-neo
+  sells: Full-stack AI cloud, bare metal and managed
+  stack: Soperator (open-source Slurm on Kubernetes)
+  europe: Finland (Mantsala), Iceland, UK (Ark Longcross), Spain (Getafe 18 MW)
+  scale: Listed on Nasdaq (NBIS). Large Microsoft and Meta contracts
+  source: https://nebius.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-neo
+- id: lambda
+  name: Lambda
+  hq: US
+  category: cat-neo
+  sells: On-demand and reserved GPU cloud, 1-Click Clusters
+  stack: Own orchestration; Slurm and Kubernetes supported
+  europe: None verified
+  scale: Clusters need 16 GPUs for two weeks minimum. IPO discussed for 2027
+  source: https://lambda.ai
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-neo
+- id: crusoe
+  name: Crusoe
+  hq: US
+  category: cat-neo
+  sells: GPU clusters, modular data centres, own power generation
+  stack: Kubernetes; Slurm supported
+  europe: Norway (hydro, 12 to 52 MW), Iceland
+  scale: Series F of USD 3.9 bn reported 17 Sep 2026
+  source: https://crusoe.ai
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-neo
+- id: together-ai
+  name: Together AI
+  hq: US
+  category: cat-neo
+  sells: Serverless inference, fine-tuning, dedicated clusters
+  stack: Kubernetes; Slurm on dedicated clusters
+  europe: None owned
+  scale: Leases capacity rather than owning sites
+  source: https://www.together.ai
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-neo
+- id: fluidstack
+  name: Fluidstack
+  hq: US (moved from UK)
+  category: cat-neo
+  sells: Bare-metal clusters; builds campuses for named customers
+  stack: Not disclosed
+  europe: UK presence reduced; withdrew from a 1 GW French project in March 2026
+  scale: Hosts on sites owned by TeraWulf, Cipher and Hut 8
+  source: https://www.fluidstack.io
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-neo
+- id: voltage-park
+  name: Voltage Park (Lightning AI)
+  hq: US
+  category: cat-neo
+  sells: On-demand and reserved clusters plus the Lightning platform
+  stack: Not disclosed
+  europe: None confirmed
+  scale: Merged with Lightning AI; 36,000 NVIDIA Hopper, Blackwell and Grace Blackwell GPUs
+  source: https://www.voltagepark.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-neo
+- id: vultr
+  name: Vultr
+  hq: US
+  category: cat-neo
+  sells: VMs, bare-metal GPU, managed Kubernetes
+  stack: Own Kubernetes engine; customer-run Slurm
+  europe: Amsterdam, Frankfurt, London, Paris and others
+  scale: 32+ regions; building a 50 MW AMD cluster
+  source: https://www.vultr.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-neo
+- id: tensorwave
+  name: TensorWave
+  hq: US
+  category: cat-neo
+  sells: GPU cloud on AMD Instinct only
+  stack: Not disclosed
+  europe: None found
+  scale: 8,192-GPU liquid-cooled MI325X cluster
+  source: https://tensorwave.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-neo
+- id: firmus
+  name: Firmus
+  hq: Australia
+  category: cat-neo
+  sells: GPU cloud and campus development in Asia-Pacific
+  stack: Not disclosed
+  europe: None
+  scale: "Over 900 MW contracted capacity across Asia-Pacific sites (Singapore, Australia, and the Batam, Indonesia campus). The Batam campus (360 MW, with NVIDIA and DayOne) is announced, targeted to go live Q1 2027 — not yet delivered. Listed for completeness: no European site"
+  source: https://firmus.co
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-neo
+- id: nscale
+  name: Nscale
+  hq: UK
+  category: cat-eu
+  sells: Bare-metal GPU clusters; operator for hyperscaler contracts
+  stack: OpenStack Ironic, own systems
+  europe: Loughton and Blyth (UK), Narvik and Glomfjord (Norway), Sines (Portugal), Iceland
+  scale: Microsoft contracts for Sines and Norway. Filed a registration statement for a proposed US IPO on 18 September 2026
+  source: https://www.nscale.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-eu
+- id: verda
+  name: Verda (formerly DataCrunch)
+  hq: Finland
+  category: cat-eu
+  sells: On-demand GPU cloud, instant multi-node clusters with InfiniBand
+  stack: Not disclosed
+  europe: Finland
+  scale: Hourly billing with no minimum, which makes it useful for learning labs
+  source: https://verda.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-eu
+- id: hyperstack
+  name: Hyperstack (NexGen Cloud)
+  hq: UK
+  category: cat-eu
+  sells: Self-service GPU cloud
+  stack: Not disclosed
+  europe: Norway (near Oslo, 6 to 14 MW)
+  scale: About 13,000 GPUs deployed
+  source: https://www.nexgencloud.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-eu
+- id: northern-data
+  name: Northern Data / Taiga Cloud
+  hq: Germany
+  category: cat-eu
+  sells: GPU cloud with managed Kubernetes and Slurm; high-density colocation
+  stack: Managed Kubernetes and Slurm
+  europe: Sweden (Boden), Norway, London
+  scale: About 24,000 GPUs across six AI islands (Boden, Sweden; Kristiansand and Lefdal, Norway; London, UK). Rumble Inc. (renamed RUM Group Inc.) completed its acquisition of Northern Data in June 2026; the cloud business is now branded Quake AI
+  source: https://northerndata.de/taiga-cloud-by-northern-data-group
+  checked: 2026-09-18
+  confidence: verified
+  note: Rumble Inc. (renamed RUM Group Inc.) completed its acquisition of Northern Data in June 2026; Northern Data / Taiga Cloud is now part of the Quake AI cloud business. Confirmed on Northern Data's own site 2026-09-18.
+  related:
+    - cat-eu
+- id: sesterce
+  name: Sesterce
+  hq: France
+  category: cat-eu
+  sells: Bare-metal GPU clusters
+  stack: Sesterce OS (own control plane), Slurm and Kubernetes native; NVIDIA Quantum InfiniBand at 800 Gb/s
+  europe: Bosquel (Hauts-de-France, 1 GW campus, joint venture with SoftBank), Valence, Paris
+  scale: About 2 GW of clean energy under control across its French sites (Bosquel joint venture with SoftBank at 1 GW, plus Valence and Paris); build stage not separately disclosed per site
+  source: https://www.sesterce.com
+  checked: 2026-09-18
+  confidence: verified
+  note: "Checked against sesterce.com 2026-09-18: three French sites confirmed (Bosquel, Valence, Paris). The previously carried 80 MW Valence figure is not stated on Sesterce's own site and has been dropped pending a primary-source number."
+  related:
+    - cat-eu
+- id: scaleway
+  name: Scaleway
+  hq: France
+  category: cat-eu
+  sells: VMs, GPU instances, bare metal, managed Kubernetes
+  stack: Own Kubernetes (Kapsule)
+  europe: France, Poland, Italy and the Netherlands (operating); Sweden and Germany (upcoming)
+  scale: Part of Iliad. On the EU Cloud III framework
+  source: https://www.scaleway.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-eu
+- id: ovhcloud
+  name: OVHcloud
+  hq: France
+  category: cat-eu
+  sells: General cloud with GPU VMs and bare metal
+  stack: OpenStack, managed Kubernetes
+  europe: 46 data centres across 4 continents
+  scale: A sovereign general-purpose cloud more than a neocloud
+  source: https://www.ovhcloud.com
+  checked: 2026-09-18
+  confidence: verified
+  operating_model: owns
+  operating_model_source: https://www.ovhcloud.com/en/about-us/global-infrastructure/
+  operating_model_checked: 2026-10-24
+  related:
+    - cat-eu
+- id: ionos
+  name: IONOS
+  hq: Germany
+  category: cat-eu
+  sells: Hosting and cloud with a GPU product
+  stack: Not disclosed
+  europe: Germany
+  scale: Not GPU-native (GPU servers offered as a product). Submitted an Expression of Interest with HOCHTIEF for an EU AI Gigafactory in June 2025, targeting 50,000 GPUs scaling to 100,000+ by 2027
+  source: https://www.ionos.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-eu
+- id: gcore
+  name: Gcore
+  hq: Luxembourg
+  category: cat-eu
+  sells: GPU cloud plus edge inference and CDN
+  stack: Not disclosed
+  europe: Sines-2 and Sines-3, Portugal (GPU Cloud)
+  scale: NVIDIA H100 GPUs; servers ready to deploy in both Sines regions
+  source: https://gcore.com/blog/sines-region-launch
+  checked: 2026-09-20
+  confidence: verified
+  note: Gcore's 23 June 2025 announcement names both Sines regions, says they can be activated for GPU Cloud, and lists H100 GPUs.
+  related:
+    - cat-eu
+- id: cudo-compute
+  name: Cudo Compute
+  hq: UK
+  category: cat-eu
+  sells: Enterprise managed AI on aggregated data centres
+  stack: Not disclosed
+  europe: Paris, Stockholm, Kristiansand
+  scale: Closed its public on-demand platform on 31 March 2026
+  source: https://www.cudocompute.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-eu
+- id: civo
+  name: Civo
+  hq: UK
+  category: cat-eu
+  sells: Kubernetes-native cloud with a dedicated GPU cloud product line (multiple NVIDIA GPU generations, several generally available)
+  stack: Own managed Kubernetes
+  europe: London, Frankfurt
+  scale: "GPU cloud is now a major, generally available product line: NVIDIA B200 Blackwell and B300 Blackwell Ultra generally available, plus H200, H100, A100 and L40s; Vera Rubin NVL72 is registration-only"
+  source: https://www.civo.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-eu
+- id: flexai
+  name: FlexAI
+  hq: France
+  category: cat-eu
+  sells: Orchestration/compute platform running on a mix of owned and partner GPU capacity (CUDA and ROCm)
+  stack: Own software
+  europe: No specific European site named by flex.ai; operates a mix of owned and partner GPU capacity
+  scale: Runs on "owned and partner capacity" per its own site — a hybrid between a broker and a neocloud, not a pure broker
+  source: https://flex.ai
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-eu
+- id: runpod
+  name: RunPod
+  hq: US
+  category: cat-market
+  sells: GPU pods, serverless inference, Instant Clusters, community marketplace
+  stack: Slurm preconfigured on Instant Clusters
+  europe: No own European site confirmed
+  scale: Per-second billing with no minimum
+  source: https://www.runpod.io
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-market
+- id: vast-ai
+  name: Vast.ai
+  hq: US
+  category: cat-market
+  sells: Peer-to-peer GPU rental, on-demand and interruptible
+  stack: None
+  europe: None
+  scale: Not the same company as VAST Data, the storage vendor
+  source: https://console.vast.ai/terms/
+  checked: 2026-10-06
+  confidence: verified
+  note: "Opened 2026-10-06: Vast.ai's terms name the operator as Vast.ai Inc. (California); VAST Data's licence agreement names VAST DATA, INC., a separate company. vast.ai publishes no total GPU count, so none is carried."
+  related:
+    - cat-market
+- id: modal
+  name: Modal
+  hq: US
+  category: cat-inference
+  sells: Serverless GPU compute for inference and training
+  stack: Hidden from the user
+  europe: Stockholm and London offices
+  source: https://modal.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-inference
+- id: baseten
+  name: Baseten
+  hq: US
+  category: cat-inference
+  sells: Managed model serving with autoscaling
+  stack: Hidden from the user
+  europe: Remote engineers in Germany; no dedicated Europe office
+  source: https://www.baseten.co
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-inference
+- id: fireworks-ai
+  name: Fireworks AI
+  hq: US
+  category: cat-inference
+  sells: Inference API and fine-tuning
+  stack: Hidden from the user
+  europe: None confirmed
+  source: https://fireworks.ai
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-inference
+- id: digitalocean
+  name: DigitalOcean (Paperspace)
+  hq: US
+  category: cat-inference
+  sells: GPU droplets, notebooks, deployments
+  stack: Own
+  europe: Amsterdam, Frankfurt
+  scale: Paperspace became part of DigitalOcean in July 2023
+  source: https://www.digitalocean.com
+  checked: 2026-09-18
+  confidence: verified
+  operating_model: leases
+  operating_model_source: https://www.sec.gov/Archives/edgar/data/1582961/000158296126000019/docn-20251231.htm
+  operating_model_checked: 2026-10-24
+  related:
+    - cat-inference
+- id: groq
+  name: Groq
+  hq: US
+  category: cat-silicon
+  sells: Inference API and systems on its own LPU chips
+  stack: Own
+  europe: Helsinki and UK, both Equinix colocation
+  scale: Leases colocation space
+  source: https://groq.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-silicon
+- id: cerebras
+  name: Cerebras
+  hq: US
+  category: cat-silicon
+  sells: Wafer-scale systems and an inference cloud
+  stack: Own
+  europe: Mikkeli, Finland (165 MW, phased; Compute Nordic Finland partnership)
+  scale: Listed on Nasdaq in May 2026
+  source: https://www.cerebras.ai
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-silicon
+- id: sambanova
+  name: SambaNova
+  hq: US
+  category: cat-silicon
+  sells: Inference cloud and on-premises systems
+  stack: Own
+  europe: None confirmed
+  source: https://sambanova.ai
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-silicon
+- id: mistral-compute
+  name: Mistral Compute
+  hq: France
+  category: cat-sovereign
+  sells: GPU cloud for training and inference, run by Mistral
+  stack: Not disclosed
+  europe: "Les Ulis (Essonne), 10 MW, opening Q3 2026; leased space in Sweden with EcoDataCenter (unquantified)"
+  scale: Targets 1 GW of sovereign capacity across the EU by 2030 (mistral.ai's own figure)
+  source: https://mistral.ai/products/mistral-compute
+  checked: 2026-09-20
+  confidence: unverified
+  note: "mistral.ai does not state a Paris-region MW figure; the 44 MW figure previously carried here traced to press reporting of a separate Bruyeres-le-Chatel (Eclairion) facility, not to mistral.ai, and has been dropped. Its own quantified target is 1 GW sovereign capacity across the EU by 2030; it does not substantiate a founding role in the NVIDIA Nemotron Coalition. Re-checked 2026-09-20."
+  related:
+    - cat-sovereign
+- id: evroc
+  name: Evroc
+  hq: Sweden
+  category: cat-sovereign
+  sells: Sovereign cloud with planned Blackwell clusters
+  stack: Not disclosed
+  europe: Stockholm Arlandastad; France
+  scale: Plans 150 kW racks
+  source: https://evroc.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-sovereign
+- id: polarise
+  name: Polarise
+  hq: Germany
+  category: cat-sovereign
+  sells: AI data-centre colocation and full-stack hosting
+  stack: Not disclosed
+  europe: Munich; Bavaria 30 to 120 MW from 2027
+  scale: Deutsche Telekom's Industrial AI Cloud is the anchor tenant
+  source: https://polarise.eu
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-sovereign
+- id: bsc
+  name: BSC, MareNostrum 5 and AI Factory
+  hq: Spain
+  category: cat-sovereign
+  sells: National supercomputing centre hosting a EuroHPC AI Factory
+  stack: Slurm
+  europe: Barcelona
+  scale: 4,480 H100 in MareNostrum 5; 1,920 Blackwell being added
+  source: https://www.bsc.es
+  checked: 2026-09-18
+  confidence: verified
+  note: Confirmed against bsc.es (institutional self-description, MareNostrum 5 technical overview, AI Factory page) and the EuroHPC JU contract announcement for the Blackwell upgrade.
+  related:
+    - cat-sovereign
+- id: telefonica
+  name: Telefonica
+  hq: Spain
+  category: cat-sovereign
+  sells: Edge nodes and integration; no GPU cloud of its own
+  stack: n/a
+  europe: 17 Spanish edge nodes; rollout completed
+  scale: Sold most of its data-centre business to Asterion (Nabiax)
+  source: https://www.telefonica.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-sovereign
+- id: iren
+  name: IREN
+  hq: Australia
+  category: cat-miner
+  sells: GPU cloud from its own sites
+  stack: NVIDIA H100, H200, B200, B300 and GB300 NVL72 GPUs
+  europe: "Spain, through the Nostrum Group (Ingenostrum) acquisition announced 7 May 2026, subject to customary closing conditions; about 490 MW of secured, grid-connected power"
+  scale: "Childress, Texas campus: 750 MW total site capacity (development); Microsoft's five-year AI GPU cloud contract (announced Nov 2025, ~$9.7bn) covers 200 MW of critical IT load across four 50 MW phases (Horizon 1-4)"
+  source: https://iren.com
+  checked: 2026-09-18
+  confidence: verified
+  operating_model: owns
+  operating_model_source: https://www.sec.gov/Archives/edgar/data/1878848/000187884825000063/iren-20250630.htm
+  operating_model_checked: 2026-10-24
+  facility: Childress, Texas
+  facility_source: https://iren.com/data-centers/childress
+  related:
+    - cat-miner
+- id: core-scientific
+  name: Core Scientific
+  hq: US
+  category: cat-miner
+  sells: Hosts CoreWeave's fleet
+  stack: n/a
+  europe: None
+  scale: About 590 MW of contracted critical IT load to CoreWeave across six sites (per the Feb 2025 Denton, TX expansion release; the company has not restated the aggregate figure since)
+  source: https://corescientific.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-miner
+- id: applied-digital
+  name: Applied Digital
+  hq: US
+  category: cat-miner
+  sells: Leases AI halls
+  stack: n/a
+  europe: None
+  scale: "Three 15-year leases to CoreWeave at the Polaris Forge 1 (Ellendale, North Dakota) campus, totalling 400 MW of critical IT capacity: the initial two leases (May 2025) for 250 MW, plus a third 150 MW lease added August 2025; about $11B in anticipated contracted lease revenue"
+  source: https://applieddigital.com
+  checked: 2026-09-18
+  confidence: verified
+  operating_model: owns
+  operating_model_source: https://www.sec.gov/Archives/edgar/data/0001144879/000114487926000048/apld-20260531.htm
+  operating_model_checked: 2026-10-24
+  related:
+    - cat-miner
+- id: terawulf
+  name: TeraWulf
+  hq: US
+  category: cat-miner
+  sells: Hosts Fluidstack
+  stack: n/a
+  europe: None
+  scale: Google backstops part of the lease
+  source: https://terawulf.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-miner
+- id: cipher-mining
+  name: Cipher Mining
+  hq: US
+  category: cat-miner
+  sells: Hosts Fluidstack
+  stack: n/a
+  europe: None
+  scale: "300 MW of critical IT load to Fluidstack — Cipher's Barber Lake (Colorado City, Texas) site is now fully leased, following the November 2025 expansion"
+  source: https://cipherdigital.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-miner
+- id: hut-8
+  name: Hut 8
+  hq: US
+  category: cat-miner
+  sells: AI data centres and a small GPU service
+  stack: n/a
+  europe: None
+  scale: 245 MW, 15-year lease to Fluidstack
+  source: https://hut8.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-miner
+- id: galaxy
+  name: Galaxy (Helios)
+  hq: US
+  category: cat-miner
+  sells: Leases its Texas campus to CoreWeave
+  stack: n/a
+  europe: None
+  scale: 133 MW of critical IT live from about 200 MW gross; 526 MW committed
+  source: https://www.galaxy.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-miner
+- id: merlin-edged
+  name: Merlin Edged
+  hq: Spain
+  category: cat-landlord
+  sells: Builds and leases liquid-ready halls
+  stack: n/a
+  europe: "Madrid-Getafe, Barcelona-Zona Franca and Bilbao-Arasur (Spain) in operation; Lisbon-Vila Franca de Xira (Portugal) under construction; Navalmoral de la Mata and Valdecaballeros (Extremadura, Spain) announced"
+  scale: "Operating capacity: Getafe 20 MW (expandable to 27 MW; includes an 18 MW Nebius contract), Barcelona 16 MW (expandable to 22 MW; hosts CoreWeave, MW not disclosed for that tenancy), Bilbao-Arasur 24 MW live plus 46 MW and 60 MW under construction (site expandable to 300 MW); Lisbon 180 MW under construction (expandable to 300 MW); the two Extremadura campuses each planned at about 1,000 MW of IT capacity across 10 buildings"
+  source: https://www.merlinproperties.com
+  checked: 2026-09-18
+  confidence: verified
+  note: "The previous 'CoreWeave and Nebius at 15 to 18 MW each' conflated the two tenants under one figure. Merlin's own site confirms only the Nebius/Getafe 18 MW contract by name; a CoreWeave/Barcelona MW figure (often quoted as 15 MW) appears only in third-party coverage, never on Merlin's own pages, so no number is carried for that tenancy."
+  related:
+    - cat-landlord
+- id: start-campus
+  name: Start Campus
+  hq: Portugal
+  category: cat-landlord
+  sells: Develops the Sines campus
+  stack: n/a
+  europe: "Sines: 1.2 GW total campus envelope (announced); first facility SIN01 live at 37.5 MW; SIN02 planned at 200 MW"
+  scale: "Nscale operates the campus; Microsoft announced a $10 billion investment in the Sines campus (November 2025), and Nscale is expanding its Microsoft/Start Campus GPU deployment with 66,000+ NVIDIA Rubin GPUs starting late 2027"
+  source: https://www.startcampus.pt
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-landlord
+- id: solaria
+  name: Solaria
+  hq: Spain
+  category: cat-landlord
+  sells: Solar developer supplying power and land to data centres
+  stack: n/a
+  europe: Puertollano, Madrid
+  scale: "Signed the first hybrid solar-and-battery PPA in the Spanish market, for a Madrid data centre with Merlin Properties (26 February 2026): 213 MW of grid connection, a 40-year 426 MW PV PPA and a 10-year 600 MWh battery-storage contract"
+  source: https://www.solariaenergia.com
+  checked: 2026-09-18
+  confidence: verified
+  related:
+    - cat-landlord
+- id: submer
+  name: Submer
+  hq: Spain
+  category: cat-landlord
+  sells: Immersion-cooling maker turned developer
+  stack: n/a
+  europe: "Flix, Spain: former Ercros industrial site, developed and operated by Rubix Data Centers"
+  scale: Site announced July 2026; no capacity figure published by the company
+  source: https://submer.com/blog/press/invest-more-than-1-billion-in-an-ai-data-center-in-flix/
+  checked: 2026-10-07
+  confidence: verified
+  note: "Opened in a browser 2026-10-07: Submer's press release announces an investment of more than EUR 1 bn at the former Ercros plant in Flix, in two phases, built and operated by its Rubix Data Centers unit for a third-party tenant. It gives no megawatt figure for the site. The release does not say the site is leased, so that word was removed."
+  related:
+    - cat-landlord

@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+---
+<article class="entry">
+  <header class="entry-head">
+    {% if crumbs %}<ol class="crumbs">{% for c in crumbs %}<li><a href="{{ c.url }}">{{ c.label }}</a></li>{% endfor %}</ol>{% endif %}
+    {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+    <h1>{{ title }}</h1>
+    {% if lede %}<p class="lede">{{ lede }}</p>{% endif %}
+    {% include "partials/source-line.njk" %}
+  </header>
+  {{ content | safe }}
+  {% include "partials/connects-to.njk" %}
+</article>

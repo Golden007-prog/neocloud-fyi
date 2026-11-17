@@ -1,0 +1,29 @@
+# Source registry for the updater (docs/updater-design.md section d).
+# status: permitted | restricted | unreviewed-quote-only
+#   restricted               hard deny in code: the updater will not fetch these hosts.
+#   permitted                terms allow scheduled reuse; `obligation` must be honoured on output.
+#   unreviewed-quote-only    vendor/company page; terms not reviewed per host. Use is the one the
+#                            site already makes: link and quote a listed price or date.
+# Terms and quotes: research/2026-09-20-evidence-corpus/notes/2026-10-06-source-terms-validation.md
+# No `permitted` dataset is ingested yet: no site collection has a field it could feed.
+sources:
+  # Restricted: link only, never fetch.
+  - { host: ree.es,            status: restricted, licence: "private/non-commercial informative use; written authorisation otherwise", terms_url: "https://www.ree.es/es/aviso-legal", terms_checked: 2026-10-06 }
+  - { host: edistribucion.com, status: restricted, licence: "private copies only; no redistribution or commercial use", terms_url: "https://www.edistribucion.com/es/aviso-legal.html", terms_checked: 2026-10-06 }
+  - { host: capareseau.fr,     status: restricted, licence: "prior written authorisation from RTE", terms_url: "https://www.capareseau.fr/mentions-legales", terms_checked: 2026-10-06 }
+  - { host: tsodsoplatform.eu, status: restricted, licence: "Capacitypedia: personal, non-commercial downloading only", terms_url: "https://www.tsodsoplatform.eu/", terms_checked: 2026-10-06 }
+  - { host: peeringdb.com,     status: restricted, licence: "operational purposes only; no reproduction without permission", terms_url: "https://www.peeringdb.com/aup", terms_checked: 2026-10-06 }
+  - { host: dcbyte.com,        status: restricted, licence: "no redistribution, no automated access", terms_url: "https://www.dcbyte.com/terms-of-service/", terms_checked: 2026-10-06 }
+  - { host: baxtel.com,        status: restricted, licence: "personal or internal use; no scraping", terms_url: "https://www.baxtel.com/terms", terms_checked: 2026-10-06 }
+  - { host: datacentermap.com, status: restricted, licence: "no programmatic retrieval without a licence agreement (read by codex only)", terms_url: "https://www.datacentermap.com/legal/terms/", terms_checked: 2026-10-06 }
+  - { host: eudca.org,         status: restricted, licence: "All rights reserved; no reuse grant on the page", terms_url: "https://www.eudca.org/eudca-interactive-map-data", terms_checked: 2026-10-06 }
+  - { host: seenergies.eu,     status: restricted, licence: "All rights reserved on the Peta page; per-layer licence not found (treated as restricted)", terms_url: "https://www.seenergies.eu/peta5/", terms_checked: 2026-10-07 }
+  # Permitted datasets (registered so a first ingestion cannot skip the licence step).
+  - { host: berec.europa.eu,     status: permitted, licence: "re-use authorised with acknowledgement; per-document notices may add conditions", obligation: "acknowledge the BEREC Office as source; check each document's own copyright notice", terms_url: "https://www.berec.europa.eu/en/legal-notice", terms_checked: 2026-10-07 }
+  - { host: epoch.ai,            status: permitted, licence: "CC BY", obligation: "credit source and authors: Epoch AI, 'AI data centers'", terms_url: "https://epoch.ai/data/data-centers-documentation", terms_checked: 2026-10-06 }
+  - { host: openstreetmap.org,   status: permitted, licence: "ODbL 1.0", obligation: "credit OpenStreetMap contributors; a derived database must stay ODbL", terms_url: "https://www.openstreetmap.org/copyright", terms_checked: 2026-10-06 }
+  - { host: apicarto.ign.fr,     status: permitted, licence: "licence ouverte", obligation: "attribute IGN / Geoportail de l'Urbanisme", terms_url: "https://www.data.gouv.fr/dataservices/api-carto-module-geoportail-de-lurbanisme-gpu", terms_checked: 2026-10-06 }
+  - { host: catalogodatos.cnmc.es, status: permitted, licence: "CC BY-SA 4.0", obligation: "cite the source; derived output stays CC BY-SA 4.0", terms_url: "https://data.cnmc.es/condiciones-de-uso", terms_checked: 2026-10-06 }
+  - { host: telegeography.com,   status: permitted, licence: "CC BY-SA 4.0 (public maps only)", obligation: "cite TeleGeography; derived output stays CC BY-SA 4.0", terms_url: "https://www2.telegeography.com/cite-telegeography-map", terms_checked: 2026-10-06 }
+  # Everything else the rows cite: vendor and company pages.
+  - { host: "*", status: unreviewed-quote-only, licence: "not reviewed per host", obligation: "link and quote a listed price or date; no page copies kept; robots.txt and rate limit honoured", terms_checked: 2026-10-07 }

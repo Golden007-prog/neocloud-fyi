@@ -1,0 +1,64 @@
+- id: cat-neo
+  name: Neocloud
+  label: Neocloud
+  description: "Built to sell GPU compute at scale: bare-metal clusters, managed Slurm or Kubernetes, sometimes inference. Usually NVIDIA-centric and financed by GPU-backed debt and long compute contracts."
+  source: https://neocloud.fyi/sources/
+  checked: 2026-09-18
+  confidence: verified
+  note: site's own definition
+- id: cat-eu
+  name: European and regional
+  label: European and regional
+  description: Neoclouds and cloud providers headquartered in Europe, from GPU-native firms to general clouds with a GPU product.
+  source: https://neocloud.fyi/sources/
+  checked: 2026-09-18
+  confidence: verified
+  note: site's own definition
+- id: cat-market
+  name: Marketplace or aggregator
+  label: Marketplace or aggregator
+  description: Brokers GPUs owned by many independent hosts. Owns little or no hardware.
+  source: https://neocloud.fyi/sources/
+  checked: 2026-09-18
+  confidence: verified
+  note: site's own definition
+- id: cat-inference
+  name: Inference platform
+  label: Inference platform
+  description: Sells API access to run or serve models. The customer never sees a scheduler, a rack or a GPU generation.
+  source: https://neocloud.fyi/sources/
+  checked: 2026-09-18
+  confidence: verified
+  note: site's own definition
+- id: cat-silicon
+  name: Custom-silicon cloud
+  label: Custom-silicon cloud
+  description: Sells inference or systems on its own chips instead of GPUs.
+  source: https://neocloud.fyi/sources/
+  checked: 2026-09-18
+  confidence: verified
+  note: site's own definition
+- id: cat-sovereign
+  name: Sovereign or national
+  label: Sovereign or national
+  description: State-backed, EuroHPC or national-champion compute meant to keep AI capacity under regional control.
+  source: https://neocloud.fyi/sources/
+  checked: 2026-09-18
+  confidence: verified
+  note: site's own definition
+- id: cat-miner
+  name: Miner turned AI host
+  label: Miner turned AI host
+  description: Former bitcoin miners that now lease powered buildings to neoclouds on long terms. In practice, colocation landlords.
+  source: https://neocloud.fyi/sources/
+  checked: 2026-09-18
+  confidence: verified
+  note: site's own definition
+- id: cat-landlord
+  name: Developer or landlord
+  label: Developer or landlord
+  description: Owns land, grid position and buildings; rents powered space to tenants who bring their own compute.
+  source: https://neocloud.fyi/sources/
+  checked: 2026-09-18
+  confidence: verified
+  note: site's own definition
